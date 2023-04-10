@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewMatch">
+
+    <Button
+        android:id="@+id/btnP1Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:text="P1 Score"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnP2Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="P2 Score"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/txP1Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txP1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1 Name"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/InP1Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/InP1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:ems="12"
+        android:inputType="textPersonName"
+        android:text="Name Goes Here"
+        app:layout_constraintBottom_toTopOf="@+id/txP2Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txP2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2 Name"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/InP2Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/InP2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Name Goes Here"
+        android:ems="12"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnP1Score"
+        app:layout_constraintVertical_bias="0.892" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
