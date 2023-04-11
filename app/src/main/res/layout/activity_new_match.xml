@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".NewMatch">
 
+    <TextView
+        android:id="@+id/scoreP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/p1score"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/scoreP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/p2score"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf= "parent"
+        app:layout_constraintStart_toStartOf="@id/scoreP1"
+        app:layout_constraintTop_toTopOf="@id/scoreP1" />
+
     <Button
         android:id="@+id/btnP1Score"
         android:layout_width="wrap_content"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TennisTracker</string>
+    <string name = "p1score"> 0 -     </string>
+    <string name = "p2score"> 0 </string>
 </resources>
