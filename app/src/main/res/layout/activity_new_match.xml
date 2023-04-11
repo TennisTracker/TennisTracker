@@ -11,12 +11,27 @@
         android:id="@+id/scoreP1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="112dp"
         android:text="@string/p1score"
         android:textSize="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="112dp"
+        android:text="-"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/scoreP2"
@@ -24,7 +39,8 @@
         android:layout_height="wrap_content"
         android:text="@string/p2score"
         android:textSize="80dp"
-        app:layout_constraintEnd_toEndOf= "parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="@id/scoreP1"
         app:layout_constraintTop_toTopOf="@id/scoreP1" />
 
@@ -32,21 +48,43 @@
         android:id="@+id/gameP1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="617dp"
         android:text="@string/gameP1"
         android:textSize="80dp"
-        app:layout_constraintEnd_toEndOf= "parent"
-        app:layout_constraintStart_toStartOf="@id/gameP1"
-        app:layout_constraintTop_toTopOf="@id/gameP1" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dash2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="195dp"
+        android:layout_marginBottom="625dp"
+        android:text="-"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/gameP2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="249dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="616dp"
         android:text="@string/gameP2"
         android:textSize="80dp"
-        app:layout_constraintEnd_toEndOf= "parent"
-        app:layout_constraintStart_toStartOf="@id/gameP2"
-        app:layout_constraintTop_toTopOf="@id/gameP2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnP1Score"
@@ -105,9 +143,9 @@
         android:id="@+id/InP2Name"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="Name Goes Here"
         android:ems="12"
         android:inputType="textPersonName"
+        android:text="Name Goes Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
