@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewMatch">
+    tools:context=".NewMatch"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/scoreP1"
@@ -26,6 +27,26 @@
         app:layout_constraintEnd_toEndOf= "parent"
         app:layout_constraintStart_toStartOf="@id/scoreP1"
         app:layout_constraintTop_toTopOf="@id/scoreP1" />
+
+    <TextView
+        android:id="@+id/gameP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameP1"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf= "parent"
+        app:layout_constraintStart_toStartOf="@id/gameP1"
+        app:layout_constraintTop_toTopOf="@id/gameP1" />
+
+    <TextView
+        android:id="@+id/gameP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameP2"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf= "parent"
+        app:layout_constraintStart_toStartOf="@id/gameP2"
+        app:layout_constraintTop_toTopOf="@id/gameP2" />
 
     <Button
         android:id="@+id/btnP1Score"
