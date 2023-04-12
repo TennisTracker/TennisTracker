@@ -16,6 +16,8 @@ var P1index = 0
 var P2index = 0
 var P1gameIndex = 0
 var P2gameIndex = 0
+var P1tiebreakScore = 0
+var P2tiebreakScore = 0
 
 //initalize array of possible game scores and set scores
 val gameScores: IntArray = intArrayOf(0, 15, 30, 40)
@@ -42,6 +44,7 @@ class NewMatch : AppCompatActivity() {
         P1Score.setOnClickListener {
             totalpoints += 1
             P1totalpoints += 1
+
             if (P1index == 4) {
                 P1index = 0
                 P2index = 0
@@ -49,17 +52,37 @@ class NewMatch : AppCompatActivity() {
                 gameP1.text = setScores[P1gameIndex].toString()
                 scoreP2.text = gameScores[P2index].toString()
                 P2index +=1
-
+                scoreP1.text = gameScores[P1index].toString()
+                P1index+=1
 
             }
-            if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
+            else if (setScores[P1gameIndex] == 6 && setScores[P2gameIndex] == 6){
+                P1tiebreakScore +=1
+                scoreP1.text = P1tiebreakScore.toString()
+                if (P1tiebreakScore > 6 && (P1tiebreakScore - P2tiebreakScore) > 1){
+                    P1gameIndex = 0
+                    P2gameIndex = 0
+                    P1index = 0
+                    P2index = 0
+                    gameP1.text = setScores[P1gameIndex].toString()
+                    gameP2.text = setScores[P2gameIndex].toString()
+                    scoreP1.text = gameScores[P1index].toString()
+                    scoreP2.text = gameScores[P2index].toString()
+                }
+            }
+            else if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
                 P1gameIndex = 0
                 P2gameIndex = 0
                 gameP1.text = setScores[P1gameIndex].toString()
                 gameP2.text = setScores[P2gameIndex].toString()
+                scoreP1.text = gameScores[P1index].toString()
+                P1index+=1
             }
-            scoreP1.text = gameScores[P1index].toString()
-            P1index+=1
+            else{
+                scoreP1.text = gameScores[P1index].toString()
+                P1index+=1
+            }
+
 
         }
         val P2Score = findViewById<Button>(R.id.btnP2Score)
@@ -74,17 +97,41 @@ class NewMatch : AppCompatActivity() {
                 gameP2.text = setScores[P2gameIndex].toString()
                 scoreP1.text = gameScores[P1index].toString()
                 P1index +=1
-
+                scoreP2.text = gameScores[P2index].toString()
+                P2index+=1
 
             }
-            if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
+            else if (setScores[P1gameIndex] == 6 && setScores[P2gameIndex] == 6){
+                P2tiebreakScore +=1
+                scoreP2.text = P2tiebreakScore.toString()
+                if (P2tiebreakScore > 6 && (P2tiebreakScore - P1tiebreakScore) > 1){
+                    P1gameIndex = 0
+                    P2gameIndex = 0
+                    P1index = 0
+                    P2index = 0
+                    gameP1.text = setScores[P1gameIndex].toString()
+                    gameP2.text = setScores[P2gameIndex].toString()
+                    scoreP1.text = gameScores[P1index].toString()
+                    scoreP2.text = gameScores[P2index].toString()
+
+                }
+            }
+
+
+            else if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
                 P1gameIndex = 0
                 P2gameIndex = 0
                 gameP1.text = setScores[P1gameIndex].toString()
                 gameP2.text = setScores[P2gameIndex].toString()
+                scoreP2.text = gameScores[P2index].toString()
+                P2index+=1
+
             }
+
+            else{
             scoreP2.text = gameScores[P2index].toString()
             P2index+=1
+            }
         }
 
 
