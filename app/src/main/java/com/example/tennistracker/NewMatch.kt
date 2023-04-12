@@ -14,9 +14,12 @@ var P1totalpoints = 0
 var P2totalpoints = 0
 var P1index = 0
 var P2index = 0
+var P1gameIndex = 0
+var P2gameIndex = 0
 
-//initalize array of possible game scores
+//initalize array of possible game scores and set scores
 val gameScores: IntArray = intArrayOf(0, 15, 30, 40)
+val setScores: IntArray = intArrayOf(0, 1, 2, 3, 4, 5, 6, 7)
 
 class NewMatch : AppCompatActivity() {
     //private lateinit var binding: NewMatchBinding
@@ -28,6 +31,8 @@ class NewMatch : AppCompatActivity() {
 
         val scoreP1 = findViewById<TextView>(R.id.scoreP1)
         val scoreP2 = findViewById<TextView>(R.id.scoreP2)
+        val gameP1 = findViewById<TextView>(R.id.gameP1)
+        val gameP2 = findViewById<TextView>(R.id.gameP2)
         //initalize player index to 1 to combat onCreate already starting game score at 0
         P1index = 1
         P2index = 1
@@ -40,9 +45,18 @@ class NewMatch : AppCompatActivity() {
             if (P1index == 4) {
                 P1index = 0
                 P2index = 0
+                P1gameIndex +=1
+                gameP1.text = setScores[P1gameIndex].toString()
                 scoreP2.text = gameScores[P2index].toString()
                 P2index +=1
 
+
+            }
+            if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
+                P1gameIndex = 0
+                P2gameIndex = 0
+                gameP1.text = setScores[P1gameIndex].toString()
+                gameP2.text = setScores[P2gameIndex].toString()
             }
             scoreP1.text = gameScores[P1index].toString()
             P1index+=1
@@ -55,8 +69,19 @@ class NewMatch : AppCompatActivity() {
             if (P2index == 4){
                 P2index = 0
                 P1index = 0
+                P2gameIndex +=1
+
+                gameP2.text = setScores[P2gameIndex].toString()
                 scoreP1.text = gameScores[P1index].toString()
                 P1index +=1
+
+
+            }
+            if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
+                P1gameIndex = 0
+                P2gameIndex = 0
+                gameP1.text = setScores[P1gameIndex].toString()
+                gameP2.text = setScores[P2gameIndex].toString()
             }
             scoreP2.text = gameScores[P2index].toString()
             P2index+=1
