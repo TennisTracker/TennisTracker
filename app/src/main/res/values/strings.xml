@@ -4,4 +4,7 @@
     <string name = "p2score"> 0 </string>
     <string name = "gameP1"> 0 </string>
     <string name = "gameP2"> 0 </string>
+    <string name = "setP1">   </string>
+    <string name = "setP2">   </string>
+
 </resources>
