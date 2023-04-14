@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "634395800173",
+    "project_id": "tennistracker-e9ff1",
+    "storage_bucket": "tennistracker-e9ff1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634395800173:android:08aebdb66a30c620fc4564",
+        "android_client_info": {
+          "package_name": "com.example.tennistracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634395800173-e5e1tvua74sk7ftel3c2e52rc7cm9va3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGU0ibWxK0DvA1y7Eaq9vozye6Hk8wrS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634395800173-e5e1tvua74sk7ftel3c2e52rc7cm9va3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
