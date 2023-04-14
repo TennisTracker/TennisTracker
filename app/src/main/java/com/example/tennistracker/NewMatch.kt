@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.view.LayoutInflater
-//import com.example.tennistracker.databinding.NewMatchBinding
+import com.example.tennistracker.databinding.ActivityNewMatchBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 var totalpoints = 0
@@ -29,11 +31,12 @@ val setScores: IntArray = intArrayOf(0, 1, 2, 3, 4, 5, 6, 7)
 class NewMatch : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     //private lateinit var binding: NewMatchBinding
+    private lateinit var binding: ActivityNewMatchBinding
+    private lateinit var  database : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_match)
-        //binding = NewMatchBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
+        binding = ActivityNewMatchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val scoreP1 = findViewById<TextView>(R.id.scoreP1)
         val scoreP2 = findViewById<TextView>(R.id.scoreP2)
@@ -46,8 +49,8 @@ class NewMatch : AppCompatActivity() {
         P2index = 1
 
 
-        val P1Score = findViewById<Button>(R.id.btnP1Score)
-        P1Score.setOnClickListener {
+
+        binding.btnP1Score.setOnClickListener {
             totalpoints += 1
             P1totalpoints += 1
 
@@ -107,8 +110,9 @@ class NewMatch : AppCompatActivity() {
 
 
         }
-        val P2Score = findViewById<Button>(R.id.btnP2Score)
-        P2Score.setOnClickListener {
+
+
+        binding.btnP2Score.setOnClickListener {
             totalpoints += 1
             P2totalpoints += 1
             if (P2index == 4){
@@ -173,7 +177,78 @@ class NewMatch : AppCompatActivity() {
         }
 
 
+        binding.btnFinishMatch.setOnClickListener{
+            val p1name = binding.InP1Name.text.toString()
+            val p2name = binding.InP2Name.text.toString()
+            var p1pointsWon = P1totalpoints
+            var p2pointsWon = P2totalpoints
+            var pointsPlayed = totalpoints
+            var p1pointsPlayed = 0
+            var p2pointsPlayed = 0
 
+            //This is inserting player 1 and 2 into database
+            database = FirebaseDatabase.getInstance().getReference("Players")
+            val Player1 = Player(p1name, p1pointsWon, pointsPlayed)
+
+
+            database.child(p1name).get().addOnSuccessListener{
+
+                if(it.exists()){
+                    val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
+                    p1pointsWon += newPointsWon
+                    val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
+                    p1pointsPlayed = newPointsPlayed + totalpoints
+                    val player = mapOf<String,Int>(
+                        "pointsWon" to p1pointsWon,
+                        "pointsPlayed" to p1pointsPlayed
+                    )
+                    database.child(p1name).updateChildren(player).addOnSuccessListener {
+
+                        binding.InP1Name.text.clear()
+
+                    }
+                }
+                else{
+                    database.child(p1name).setValue(Player1).addOnSuccessListener {
+
+                        binding.InP1Name.text.clear()
+
+                    }
+                }
+
+            }
+
+
+            val Player2 = Player(p2name, p2pointsWon, pointsPlayed)
+
+            database.child(p2name).get().addOnSuccessListener{
+
+                if(it.exists()){
+                    val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
+                    p2pointsWon += newPointsWon
+                    val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
+                    p2pointsPlayed = newPointsPlayed + totalpoints
+                    val player = mapOf<String,Int>(
+                        "pointsWon" to p2pointsWon,
+                        "pointsPlayed" to p2pointsPlayed
+                    )
+                    database.child(p2name).updateChildren(player).addOnSuccessListener {
+
+                        binding.InP2Name.text.clear()
+
+                    }
+                }
+                else{
+                    database.child(p2name).setValue(Player2).addOnSuccessListener {
+
+                        binding.InP2Name.text.clear()
+
+                    }
+                }
+
+            }
+
+        }
 
     }
 
