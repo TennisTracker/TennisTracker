@@ -1,5 +1,6 @@
 package com.example.tennistracker
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,12 +21,16 @@ var P1gameIndex = 0
 var P2gameIndex = 0
 var P1tiebreakScore = 0
 var P2tiebreakScore = 0
+var setIndexP1 = 0
+var setIndexP2 = 0
 
 //initalize array of possible game scores and set scores
 val gameScores: IntArray = intArrayOf(0, 15, 30, 40)
 val setScores: IntArray = intArrayOf(0, 1, 2, 3, 4, 5, 6, 7)
 
 class NewMatch : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
+    //private lateinit var binding: NewMatchBinding
     private lateinit var binding: ActivityNewMatchBinding
     private lateinit var  database : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +42,8 @@ class NewMatch : AppCompatActivity() {
         val scoreP2 = findViewById<TextView>(R.id.scoreP2)
         val gameP1 = findViewById<TextView>(R.id.gameP1)
         val gameP2 = findViewById<TextView>(R.id.gameP2)
+        val setP1 = findViewById<TextView>(R.id.setP1)
+        val setP2 = findViewById<TextView>(R.id.setP2)
         //initalize player index to 1 to combat onCreate already starting game score at 0
         P1index = 1
         P2index = 1
@@ -70,6 +77,14 @@ class NewMatch : AppCompatActivity() {
                     gameP2.text = setScores[P2gameIndex].toString()
                     scoreP1.text = gameScores[P1index].toString()
                     scoreP2.text = gameScores[P2index].toString()
+                    setIndexP1 += 1
+                    if (setIndexP1 == 1){
+                        setP1.text = "1"
+                    }
+                    else{
+                        //MATCH DONE FUNCTION
+                        setP1.text = "MATCH IS DONE"
+                    }
                 }
             }
             else if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
@@ -79,6 +94,14 @@ class NewMatch : AppCompatActivity() {
                 gameP2.text = setScores[P2gameIndex].toString()
                 scoreP1.text = gameScores[P1index].toString()
                 P1index+=1
+                setIndexP1 += 1
+                if (setIndexP1 == 1){
+                    setP1.text = "1"
+                }
+                else{
+                    //MATCH DONE FUNCTION
+                    setP1.text = "MATCH IS DONE"
+                }
             }
             else{
                 scoreP1.text = gameScores[P1index].toString()
@@ -116,6 +139,14 @@ class NewMatch : AppCompatActivity() {
                     gameP2.text = setScores[P2gameIndex].toString()
                     scoreP1.text = gameScores[P1index].toString()
                     scoreP2.text = gameScores[P2index].toString()
+                    setIndexP2 += 1
+                    if (setIndexP2 == 1){
+                        setP2.text = "1"
+                    }
+                    else{
+                        //MATCH DONE FUNCTION
+                        setP2.text = "MATCH IS DONE"
+                    }
 
                 }
             }
@@ -128,6 +159,14 @@ class NewMatch : AppCompatActivity() {
                 gameP2.text = setScores[P2gameIndex].toString()
                 scoreP2.text = gameScores[P2index].toString()
                 P2index+=1
+                setIndexP2 += 1
+                if (setIndexP2 == 1){
+                    setP2.text = "1"
+                }
+                else{
+                    //MATCH DONE FUNCTION
+                    setP2.text = "MATCH IS DONE"
+                }
 
             }
 
@@ -212,4 +251,7 @@ class NewMatch : AppCompatActivity() {
         }
 
     }
+
+
+
 }
