@@ -54,7 +54,16 @@ class NewMatch : AppCompatActivity() {
             totalpoints += 1
             P1totalpoints += 1
 
-            if (P1index == 4) {
+            if (setP1.text == "1" && setP2.text == "1"){
+                P1tiebreakScore +=1
+                scoreP1.text = P1tiebreakScore.toString()
+                if (P1tiebreakScore > 9 && (P1tiebreakScore - P2tiebreakScore) > 1){
+                    setIndexP1 += 1
+                    setP1.text = "MATCH IS DONE"
+                }
+            }
+
+            else if (P1index == 4) {
                 P1index = 0
                 P2index = 0
                 P1gameIndex +=1
@@ -63,6 +72,23 @@ class NewMatch : AppCompatActivity() {
                 P2index +=1
                 scoreP1.text = gameScores[P1index].toString()
                 P1index+=1
+
+                if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
+                    P1gameIndex = 0
+                    P2gameIndex = 0
+                    gameP1.text = setScores[P1gameIndex].toString()
+                    gameP2.text = setScores[P2gameIndex].toString()
+                    //scoreP1.text = gameScores[P1index].toString()
+                    //P1index+=1
+                    setIndexP1 += 1
+                    if (setIndexP1 == 1){
+                        setP1.text = "1"
+                    }
+                    else{
+                        //MATCH DONE FUNCTION
+                        setP1.text = "MATCH IS DONE"
+                    }
+                }
 
             }
             else if (setScores[P1gameIndex] == 6 && setScores[P2gameIndex] == 6){
@@ -78,6 +104,7 @@ class NewMatch : AppCompatActivity() {
                     scoreP1.text = gameScores[P1index].toString()
                     scoreP2.text = gameScores[P2index].toString()
                     setIndexP1 += 1
+                    P1tiebreakScore = 0
                     if (setIndexP1 == 1){
                         setP1.text = "1"
                     }
@@ -87,22 +114,7 @@ class NewMatch : AppCompatActivity() {
                     }
                 }
             }
-            else if ((setScores[P1gameIndex] == 6 && setScores[P2gameIndex] < 5) || setScores[P1gameIndex] == 7 && setScores[P2gameIndex] < 6){
-                P1gameIndex = 0
-                P2gameIndex = 0
-                gameP1.text = setScores[P1gameIndex].toString()
-                gameP2.text = setScores[P2gameIndex].toString()
-                scoreP1.text = gameScores[P1index].toString()
-                P1index+=1
-                setIndexP1 += 1
-                if (setIndexP1 == 1){
-                    setP1.text = "1"
-                }
-                else{
-                    //MATCH DONE FUNCTION
-                    setP1.text = "MATCH IS DONE"
-                }
-            }
+
             else{
                 scoreP1.text = gameScores[P1index].toString()
                 P1index+=1
@@ -115,7 +127,17 @@ class NewMatch : AppCompatActivity() {
         binding.btnP2Score.setOnClickListener {
             totalpoints += 1
             P2totalpoints += 1
-            if (P2index == 4){
+
+            if (setP1.text == "1" && setP2.text == "1"){
+                P2tiebreakScore +=1
+                scoreP2.text = P2tiebreakScore.toString()
+                if (P2tiebreakScore > 9 && (P2tiebreakScore - P1tiebreakScore) > 1){
+                    setIndexP2 += 1
+                    setP2.text = "MATCH IS DONE"
+                }
+            }
+
+            else if (P2index == 4){
                 P2index = 0
                 P1index = 0
                 P2gameIndex +=1
@@ -125,6 +147,23 @@ class NewMatch : AppCompatActivity() {
                 P1index +=1
                 scoreP2.text = gameScores[P2index].toString()
                 P2index+=1
+                if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
+                    P1gameIndex = 0
+                    P2gameIndex = 0
+                    gameP1.text = setScores[P1gameIndex].toString()
+                    gameP2.text = setScores[P2gameIndex].toString()
+                    //scoreP2.text = gameScores[P2index].toString()
+                    //P2index+=1
+                    setIndexP2 += 1
+                    if (setIndexP2 == 1){
+                        setP2.text = "1"
+                    }
+                    else{
+                        //MATCH DONE FUNCTION
+                        setP2.text = "MATCH IS DONE"
+                    }
+
+                }
 
             }
             else if (setScores[P1gameIndex] == 6 && setScores[P2gameIndex] == 6){
@@ -135,6 +174,7 @@ class NewMatch : AppCompatActivity() {
                     P2gameIndex = 0
                     P1index = 0
                     P2index = 0
+                    P2tiebreakScore = 0
                     gameP1.text = setScores[P1gameIndex].toString()
                     gameP2.text = setScores[P2gameIndex].toString()
                     scoreP1.text = gameScores[P1index].toString()
@@ -151,24 +191,6 @@ class NewMatch : AppCompatActivity() {
                 }
             }
 
-
-            else if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
-                P1gameIndex = 0
-                P2gameIndex = 0
-                gameP1.text = setScores[P1gameIndex].toString()
-                gameP2.text = setScores[P2gameIndex].toString()
-                scoreP2.text = gameScores[P2index].toString()
-                P2index+=1
-                setIndexP2 += 1
-                if (setIndexP2 == 1){
-                    setP2.text = "1"
-                }
-                else{
-                    //MATCH DONE FUNCTION
-                    setP2.text = "MATCH IS DONE"
-                }
-
-            }
 
             else{
             scoreP2.text = gameScores[P2index].toString()
