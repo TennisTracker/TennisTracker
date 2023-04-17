@@ -105,6 +105,7 @@ class NewMatch : AppCompatActivity() {
                     scoreP2.text = gameScores[P2index].toString()
                     setIndexP1 += 1
                     P1tiebreakScore = 0
+                    P2tiebreakScore = 0
                     if (setIndexP1 == 1){
                         setP1.text = "1"
                     }
@@ -175,6 +176,7 @@ class NewMatch : AppCompatActivity() {
                     P1index = 0
                     P2index = 0
                     P2tiebreakScore = 0
+                    P1tiebreakScore = 0
                     gameP1.text = setScores[P1gameIndex].toString()
                     gameP2.text = setScores[P2gameIndex].toString()
                     scoreP1.text = gameScores[P1index].toString()
