@@ -191,7 +191,7 @@ class NewMatch : AppCompatActivity() {
         }
 
 
-        binding.btnFinishMatch.setOnClickListener{
+ /*       binding.btnFinishMatch.setOnClickListener{
             val p1name = binding.InP1Name.text.toString()
             val p2name = binding.InP2Name.text.toString()
             var p1pointsWon = newMatchViewModel.P1totalpoints
@@ -263,6 +263,8 @@ class NewMatch : AppCompatActivity() {
             }
 
         }
+
+  */
 
     }
 
