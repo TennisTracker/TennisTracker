@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_match_nav"
+    app:startDestination="@id/nameInputFrag">
+
+    <fragment
+        android:id="@+id/nameInputFrag"
+        android:name="com.example.tennistracker.NameInputFrag"
+        android:label="fragment_name_input"
+        tools:layout="@layout/fragment_name_input" >
+        <action
+            android:id="@+id/action_nameInputFrag_to_firstServeFrag"
+            app:destination="@id/firstServeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchScoringFrag"
+        android:name="com.example.tennistracker.MatchScoringFrag"
+        android:label="MatchScoringFrag" >
+        <action
+            android:id="@+id/action_matchScoringFrag_to_matchSumFrag"
+            app:destination="@id/matchSumFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstServeFrag"
+        android:name="com.example.tennistracker.FirstServeFrag"
+        android:label="fragment_first_serve"
+        tools:layout="@layout/fragment_first_serve" >
+        <action
+            android:id="@+id/action_firstServeFrag_to_matchScoringFrag"
+            app:destination="@id/matchScoringFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchSumFrag"
+        android:name="com.example.tennistracker.MatchSumFrag"
+        android:label="fragment_match_sum"
+        tools:layout="@layout/fragment_match_sum" >
+        <action
+            android:id="@+id/action_matchSumFrag_to_nameInputFrag"
+            app:destination="@id/nameInputFrag" />
+    </fragment>
+</navigation>
