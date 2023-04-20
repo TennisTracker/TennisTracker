@@ -15,4 +15,5 @@ class NewMatchViewModel(private  val savedStateHandle: SavedStateHandle): ViewMo
     var P2tiebreakScore = 0
     var setIndexP1 = 0
     var setIndexP2 = 0
+    var firstServesMissed = 0
 }
