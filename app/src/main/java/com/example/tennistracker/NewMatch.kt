@@ -28,19 +28,19 @@ class NewMatch : AppCompatActivity() {
         binding = ActivityNewMatchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val scoreP1 = findViewById<TextView>(R.id.scoreP1)
         val scoreP2 = findViewById<TextView>(R.id.scoreP2)
         val gameP1 = findViewById<TextView>(R.id.gameP1)
         val gameP2 = findViewById<TextView>(R.id.gameP2)
         val setP1 = findViewById<TextView>(R.id.setP1)
         val setP2 = findViewById<TextView>(R.id.setP2)
-        val
         //initalize player index to 1 to combat onCreate already starting game score at 0
-        newMatchViewModel.P1index = 1
-        newMatchViewModel.P2index = 1
+        //newMatchViewModel.P1index = 1
+        //newMatchViewModel.P2index = 1
 
 
-
+        /*
         binding.btnP1Score.setOnClickListener {
             newMatchViewModel.totalpoints += 1
             newMatchViewModel.P1totalpoints += 1
@@ -192,7 +192,7 @@ class NewMatch : AppCompatActivity() {
         }
 
 
- /*       binding.btnFinishMatch.setOnClickListener{
+       binding.btnFinishMatch.setOnClickListener{
             val p1name = binding.InP1Name.text.toString()
             val p2name = binding.InP2Name.text.toString()
             var p1pointsWon = newMatchViewModel.P1totalpoints

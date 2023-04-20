@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewMatch"
+    tools:ignore="ExtraText">
+
+    <TextView
+        android:id="@+id/scoreP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/p1score"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnP1Score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="-"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scoreP1"
+        app:layout_constraintEnd_toStartOf="@+id/scoreP2"
+        app:layout_constraintStart_toEndOf="@+id/scoreP1" />
+
+    <TextView
+        android:id="@+id/scoreP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/p2score"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dash"
+        app:layout_constraintEnd_toStartOf="@+id/btnP2Score" />
+
+    <TextView
+        android:id="@+id/gameP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="@string/gameP1"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/scoreP1"
+        app:layout_constraintStart_toStartOf="@+id/scoreP1" />
+
+    <TextView
+        android:id="@+id/dash2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="-"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/dash"
+        app:layout_constraintEnd_toStartOf="@+id/gameP2"
+        app:layout_constraintStart_toEndOf="@+id/gameP1" />
+
+
+    <TextView
+        android:id="@+id/gameP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="1dp"
+        android:text="@string/gameP2"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/dash"
+        app:layout_constraintEnd_toEndOf="@+id/scoreP2" />
+
+    <TextView
+        android:id="@+id/setP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text=""
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/gameP1"
+        app:layout_constraintStart_toStartOf="@+id/gameP1" />
+
+    <TextView
+        android:id="@+id/setP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text=""
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/gameP2"
+        app:layout_constraintStart_toStartOf="@+id/gameP2" />
+
+    <Button
+        android:id="@+id/btnP1Score"
+        android:backgroundTint="@color/white"
+        android:layout_width="75dp"
+        android:layout_height="729dp"
+        android:text="P1 Point"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnP2Score"
+        android:backgroundTint="@android:color/white"
+        android:layout_width="75dp"
+        android:layout_height="729dp"
+        android:text="P2 Point"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/FirstServeMissed"
+        android:layout_width="240dp"
+        android:layout_height="78dp"
+        android:text="1st serve missed"
+        android:foreground="@drawable/button_border"
+        app:layout_constraintBottom_toTopOf="@+id/SecondServeMissed"
+        app:layout_constraintEnd_toEndOf="@+id/scoreP2"
+        app:layout_constraintStart_toStartOf="@+id/scoreP1" />
+
+    <Button
+        android:id="@+id/SecondServeMissed"
+        android:layout_width="240dp"
+        android:layout_height="78dp"
+        android:text="2nd serve missed"
+        android:foreground="@drawable/button_border"
+        app:layout_constraintBottom_toTopOf="@+id/ReturnMissed"
+        app:layout_constraintEnd_toEndOf="@+id/scoreP2"
+        app:layout_constraintStart_toStartOf="@+id/scoreP1" />
+
+    <Button
+        android:id="@+id/ReturnMissed"
+        android:layout_width="240dp"
+        android:layout_height="78dp"
+        android:text="Return missed"
+        android:foreground="@drawable/button_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scoreP2"
+        app:layout_constraintStart_toStartOf="@+id/scoreP1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
