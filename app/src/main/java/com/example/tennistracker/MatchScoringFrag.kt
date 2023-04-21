@@ -16,6 +16,16 @@ class MatchScoringFrag : Fragment() {
 
     private val newMatchViewModel: NewMatchViewModel by activityViewModels()
 
+    lateinit var btnP1Score: Button
+    lateinit var btnP2Score: Button
+    lateinit var scoreP1 : TextView
+    lateinit var scoreP2 : TextView
+    lateinit var setP1 : TextView
+    lateinit var setP2 : TextView
+    lateinit var gameP1 : TextView
+    lateinit var gameP2 : TextView
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,14 +51,14 @@ class MatchScoringFrag : Fragment() {
         var setIndexP2 = 0
 
 
-        val btnP1Score = view.findViewById<Button>(R.id.btnP1Score)
-        val btnP2Score = view.findViewById<Button>(R.id.btnP2Score)
-        val scoreP1 = view.findViewById<TextView>(R.id.scoreP1)
-        val scoreP2 = view.findViewById<TextView>(R.id.scoreP2)
-        val setP1 = view.findViewById<TextView>(R.id.setP1)
-        val setP2 = view.findViewById<TextView>(R.id.setP2)
-        val gameP1 = view.findViewById<TextView>(R.id.gameP1)
-        val gameP2 = view.findViewById<TextView>(R.id.gameP2)
+        btnP1Score = view.findViewById<Button>(R.id.btnP1Score)
+        btnP2Score = view.findViewById<Button>(R.id.btnP2Score)
+        scoreP1 = view.findViewById<TextView>(R.id.scoreP1)
+        scoreP2 = view.findViewById<TextView>(R.id.scoreP2)
+        setP1 = view.findViewById<TextView>(R.id.setP1)
+        setP2 = view.findViewById<TextView>(R.id.setP2)
+        gameP1 = view.findViewById<TextView>(R.id.gameP1)
+        gameP2 = view.findViewById<TextView>(R.id.gameP2)
 
 
         btnP1Score.setOnClickListener{
@@ -65,18 +75,10 @@ class MatchScoringFrag : Fragment() {
             }
 
             else if (newMatchViewModel.P1index == 4) {
-                newMatchViewModel.P1index = 0
-                newMatchViewModel.P2index = 0
-                newMatchViewModel.P1gameIndex +=1
-                gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
-                scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
-                newMatchViewModel.P2index +=1
-                scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
-                newMatchViewModel.P1index+=1
+               gameScored(1)
 
                 if ((setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] < 5) || setScores[newMatchViewModel.P1gameIndex] == 7 && setScores[newMatchViewModel.P2gameIndex] < 6){
-                    newMatchViewModel.P1gameIndex = 0
-                    newMatchViewModel.P2gameIndex = 0
+                    gameReset()
                     gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
                     gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
                     //scoreP1.text = gameScores[P1index].toString()
@@ -96,10 +98,8 @@ class MatchScoringFrag : Fragment() {
                 newMatchViewModel.P1tiebreakScore +=1
                 scoreP1.text = newMatchViewModel.P1tiebreakScore.toString()
                 if (newMatchViewModel.P1tiebreakScore > 6 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
-                    newMatchViewModel.P1gameIndex = 0
-                    newMatchViewModel.P2gameIndex = 0
-                    newMatchViewModel.P1index = 0
-                    newMatchViewModel.P2index = 0
+                    setReset()
+                    gameReset()
                     gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
                     gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
                     scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
@@ -118,8 +118,7 @@ class MatchScoringFrag : Fragment() {
             }
 
             else{
-                scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
-                newMatchViewModel.P1index+=1
+                pointScored(1)
             }
 
 
@@ -141,15 +140,7 @@ class MatchScoringFrag : Fragment() {
             }
 
             else if (P2index == 4){
-                P2index = 0
-                P1index = 0
-                P2gameIndex +=1
-
-                gameP2.text = setScores[P2gameIndex].toString()
-                scoreP1.text = gameScores[P1index].toString()
-                P1index +=1
-                scoreP2.text = gameScores[P2index].toString()
-                P2index+=1
+                gameScored(2)
                 if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
                     P1gameIndex = 0
                     P2gameIndex = 0
@@ -200,11 +191,55 @@ class MatchScoringFrag : Fragment() {
 
 
             else{
-                scoreP2.text = gameScores[P2index].toString()
-                P2index+=1
+                pointScored(2)
             }
         }
 
 
     }
+
+    public fun pointScored(i:Int){
+        if (i == 1){
+            scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
+            newMatchViewModel.P1index += 1
+        }
+        else if (i==2){
+            scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
+            newMatchViewModel.P2index += 1
+        }
+
+    }
+
+
+    public fun gameScored(i:Int){
+        if (i==1){
+            gameReset()
+            newMatchViewModel.P1gameIndex +=1
+            gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
+            scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
+            newMatchViewModel.P2index +=1
+            scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
+            newMatchViewModel.P1index+=1
+        }
+        else if (i==2){
+            gameReset()
+            newMatchViewModel.P2gameIndex +=1
+
+            gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
+            scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
+            newMatchViewModel.P1index +=1
+            scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
+            newMatchViewModel.P2index+=1
+        }
+    }
+
+    public fun gameReset (){
+        newMatchViewModel.P2index = 0
+        newMatchViewModel.P1index = 0
+    }
+    public fun setReset(){
+        newMatchViewModel.P1gameIndex = 0
+        newMatchViewModel.P2gameIndex = 0
+    }
+
 }
