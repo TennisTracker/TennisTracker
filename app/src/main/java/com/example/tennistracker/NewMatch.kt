@@ -40,7 +40,7 @@ class NewMatch : AppCompatActivity() {
         //newMatchViewModel.P2index = 1
 
 
-        /*
+       /*
         binding.btnP1Score.setOnClickListener {
             newMatchViewModel.totalpoints += 1
             newMatchViewModel.P1totalpoints += 1

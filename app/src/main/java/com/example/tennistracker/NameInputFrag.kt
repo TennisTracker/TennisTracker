@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 
 class NameInputFrag : Fragment() {
 
-    private val sharedViewModel: NewMatchViewModel by activityViewModels()
+    private val newMatchViewModel: NewMatchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +33,8 @@ class NameInputFrag : Fragment() {
         nextButton.setOnClickListener{
             val P1Name = p1NameInput.text.toString()
             val P2Name = p2NameInput.text.toString()
-            sharedViewModel.p1Name = P1Name
-            sharedViewModel.p1Name = P2Name
+            newMatchViewModel.p1Name = P1Name
+            newMatchViewModel.p2Name = P2Name
             Navigation.findNavController(view).navigate(R.id.action_nameInputFrag_to_firstServeFrag)
         }
 

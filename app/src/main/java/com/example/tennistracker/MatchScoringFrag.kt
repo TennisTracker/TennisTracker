@@ -14,7 +14,7 @@ import androidx.fragment.app.activityViewModels
 
 class MatchScoringFrag : Fragment() {
 
-    private val newMatchViewModel: NewMatchViewModel by activityViewModels()
+    private val sharedViewModel: NewMatchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,17 +28,10 @@ class MatchScoringFrag : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        var totalpoints = 0
-        var P1totalpoints = 0
-        var P2totalpoints = 0
-        var P1index = 1
-        var P2index = 1
-        var P1gameIndex = 0
-        var P2gameIndex = 0
-        var P1tiebreakScore = 0
-        var P2tiebreakScore = 0
-        var setIndexP1 = 0
-        var setIndexP2 = 0
+
+        sharedViewModel.P1index = 1
+        sharedViewModel.P2index = 1
+
 
 
         val btnP1Score = view.findViewById<Button>(R.id.btnP1Score)
@@ -52,74 +45,77 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP1Score.setOnClickListener{
-            newMatchViewModel.totalpoints += 1
-            newMatchViewModel.P1totalpoints += 1
+            sharedViewModel.totalpoints += 1
+            sharedViewModel.P1totalpoints += 1
 
             if (setP1.text == "1" && setP2.text == "1"){
-                newMatchViewModel.P1tiebreakScore +=1
-                scoreP1.text = newMatchViewModel.P1tiebreakScore.toString()
-                if (newMatchViewModel.P1tiebreakScore > 9 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
-                    newMatchViewModel.setIndexP1 += 1
+                sharedViewModel.P1tiebreakScore +=1
+                scoreP1.text = sharedViewModel.P1tiebreakScore.toString()
+                if (sharedViewModel.P1tiebreakScore > 9 && (sharedViewModel.P1tiebreakScore - sharedViewModel.P2tiebreakScore) > 1){
+                    sharedViewModel.setIndexP1 += 1
                     setP1.text = "MATCH IS DONE"
+                    Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
                 }
             }
 
-            else if (newMatchViewModel.P1index == 4) {
-                newMatchViewModel.P1index = 0
-                newMatchViewModel.P2index = 0
-                newMatchViewModel.P1gameIndex +=1
-                gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
-                scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
-                newMatchViewModel.P2index +=1
-                scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
-                newMatchViewModel.P1index+=1
+            else if (sharedViewModel.P1index == 4) {
+                sharedViewModel.P1index = 0
+                sharedViewModel.P2index = 0
+                sharedViewModel.P1gameIndex +=1
+                gameP1.text = setScores[sharedViewModel.P1gameIndex].toString()
+                scoreP2.text = gameScores[sharedViewModel.P2index].toString()
+                sharedViewModel.P2index +=1
+                scoreP1.text = gameScores[sharedViewModel.P1index].toString()
+                sharedViewModel.P1index+=1
 
-                if ((setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] < 5) || setScores[newMatchViewModel.P1gameIndex] == 7 && setScores[newMatchViewModel.P2gameIndex] < 6){
-                    newMatchViewModel.P1gameIndex = 0
-                    newMatchViewModel.P2gameIndex = 0
-                    gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
-                    gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
+                if ((setScores[sharedViewModel.P1gameIndex] == 6 && setScores[sharedViewModel.P2gameIndex] < 5) || setScores[sharedViewModel.P1gameIndex] == 7 && setScores[sharedViewModel.P2gameIndex] < 6){
+                    sharedViewModel.P1gameIndex = 0
+                    sharedViewModel.P2gameIndex = 0
+                    gameP1.text = setScores[sharedViewModel.P1gameIndex].toString()
+                    gameP2.text = setScores[sharedViewModel.P2gameIndex].toString()
                     //scoreP1.text = gameScores[P1index].toString()
                     //P1index+=1
-                    newMatchViewModel.setIndexP1 += 1
-                    if (newMatchViewModel.setIndexP1 == 1){
+                    sharedViewModel.setIndexP1 += 1
+                    if (sharedViewModel.setIndexP1 == 1){
                         setP1.text = "1"
                     }
                     else{
                         //MATCH DONE FUNCTION
                         setP1.text = "MATCH IS DONE"
+                        Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
                     }
                 }
 
             }
-            else if (setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] == 6){
-                newMatchViewModel.P1tiebreakScore +=1
-                scoreP1.text = newMatchViewModel.P1tiebreakScore.toString()
-                if (newMatchViewModel.P1tiebreakScore > 6 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
-                    newMatchViewModel.P1gameIndex = 0
-                    newMatchViewModel.P2gameIndex = 0
-                    newMatchViewModel.P1index = 0
-                    newMatchViewModel.P2index = 0
-                    gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
-                    gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
-                    scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
-                    scoreP2.text = gameScores[newMatchViewModel.P2index].toString()
-                    newMatchViewModel.setIndexP1 += 1
-                    newMatchViewModel.P1tiebreakScore = 0
-                    newMatchViewModel.P2tiebreakScore = 0
-                    if (newMatchViewModel.setIndexP1 == 1){
+            else if (setScores[sharedViewModel.P1gameIndex] == 6 && setScores[sharedViewModel.P2gameIndex] == 6){
+                sharedViewModel.P1tiebreakScore +=1
+                scoreP1.text = sharedViewModel.P1tiebreakScore.toString()
+                if (sharedViewModel.P1tiebreakScore > 6 && (sharedViewModel.P1tiebreakScore - sharedViewModel.P2tiebreakScore) > 1){
+                    sharedViewModel.P1gameIndex = 0
+                    sharedViewModel.P2gameIndex = 0
+                    sharedViewModel.P1index = 0
+                    sharedViewModel.P2index = 0
+                    gameP1.text = setScores[sharedViewModel.P1gameIndex].toString()
+                    gameP2.text = setScores[sharedViewModel.P2gameIndex].toString()
+                    scoreP1.text = gameScores[sharedViewModel.P1index].toString()
+                    scoreP2.text = gameScores[sharedViewModel.P2index].toString()
+                    sharedViewModel.setIndexP1 += 1
+                    sharedViewModel.P1tiebreakScore = 0
+                    sharedViewModel.P2tiebreakScore = 0
+                    if (sharedViewModel.setIndexP1 == 1){
                         setP1.text = "1"
                     }
                     else{
                         //MATCH DONE FUNCTION
                         setP1.text = "MATCH IS DONE"
+                        Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
                     }
                 }
             }
 
             else{
-                scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
-                newMatchViewModel.P1index+=1
+                scoreP1.text = gameScores[sharedViewModel.P1index].toString()
+                sharedViewModel.P1index+=1
             }
 
 
@@ -127,38 +123,38 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP2Score.setOnClickListener {
-            totalpoints += 1
-            P2totalpoints += 1
+            sharedViewModel.totalpoints += 1
+            sharedViewModel.P2totalpoints += 1
 
             if (setP1.text == "1" && setP2.text == "1"){
-                P2tiebreakScore +=1
-                scoreP2.text = P2tiebreakScore.toString()
-                if (P2tiebreakScore > 9 && (P2tiebreakScore - P1tiebreakScore) > 1){
-                    setIndexP2 += 1
+                sharedViewModel.P2tiebreakScore +=1
+                scoreP2.text = sharedViewModel.P2tiebreakScore.toString()
+                if (sharedViewModel.P2tiebreakScore > 9 && (sharedViewModel.P2tiebreakScore - sharedViewModel.P1tiebreakScore) > 1){
+                    sharedViewModel.setIndexP2 += 1
                     setP2.text = "MATCH IS DONE"
                     Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
                 }
             }
 
-            else if (P2index == 4){
-                P2index = 0
-                P1index = 0
-                P2gameIndex +=1
+            else if (sharedViewModel.P2index == 4){
+                sharedViewModel.P2index = 0
+                sharedViewModel.P1index = 0
+                sharedViewModel.P2gameIndex +=1
 
-                gameP2.text = setScores[P2gameIndex].toString()
-                scoreP1.text = gameScores[P1index].toString()
-                P1index +=1
-                scoreP2.text = gameScores[P2index].toString()
-                P2index+=1
-                if ((setScores[P2gameIndex] == 6 && setScores[P1gameIndex] < 5) || setScores[P2gameIndex] == 7 && setScores[P1gameIndex] < 6){
-                    P1gameIndex = 0
-                    P2gameIndex = 0
-                    gameP1.text = setScores[P1gameIndex].toString()
-                    gameP2.text = setScores[P2gameIndex].toString()
+                gameP2.text = setScores[sharedViewModel.P2gameIndex].toString()
+                scoreP1.text = gameScores[sharedViewModel.P1index].toString()
+                sharedViewModel.P1index +=1
+                scoreP2.text = gameScores[sharedViewModel.P2index].toString()
+                sharedViewModel.P2index+=1
+                if ((setScores[sharedViewModel.P2gameIndex] == 6 && setScores[sharedViewModel.P1gameIndex] < 5) || setScores[sharedViewModel.P2gameIndex] == 7 && setScores[sharedViewModel.P1gameIndex] < 6){
+                    sharedViewModel.P1gameIndex = 0
+                    sharedViewModel.P2gameIndex = 0
+                    gameP1.text = setScores[sharedViewModel.P1gameIndex].toString()
+                    gameP2.text = setScores[sharedViewModel.P2gameIndex].toString()
                     //scoreP2.text = gameScores[P2index].toString()
                     //P2index+=1
-                    setIndexP2 += 1
-                    if (setIndexP2 == 1){
+                    sharedViewModel.setIndexP2 += 1
+                    if (sharedViewModel.setIndexP2 == 1){
                         setP2.text = "1"
                     }
                     else{
@@ -170,22 +166,22 @@ class MatchScoringFrag : Fragment() {
                 }
 
             }
-            else if (setScores[P1gameIndex] == 6 && setScores[P2gameIndex] == 6){
-                P2tiebreakScore +=1
-                scoreP2.text = P2tiebreakScore.toString()
-                if (P2tiebreakScore > 6 && (P2tiebreakScore - P1tiebreakScore) > 1){
-                    P1gameIndex = 0
-                    P2gameIndex = 0
-                    P1index = 0
-                    P2index = 0
-                    P2tiebreakScore = 0
-                    P1tiebreakScore = 0
-                    gameP1.text = setScores[P1gameIndex].toString()
-                    gameP2.text = setScores[P2gameIndex].toString()
-                    scoreP1.text = gameScores[P1index].toString()
-                    scoreP2.text = gameScores[P2index].toString()
-                    setIndexP2 += 1
-                    if (setIndexP2 == 1){
+            else if (setScores[sharedViewModel.P1gameIndex] == 6 && setScores[sharedViewModel.P2gameIndex] == 6){
+                sharedViewModel.P2tiebreakScore +=1
+                scoreP2.text = sharedViewModel.P2tiebreakScore.toString()
+                if (sharedViewModel.P2tiebreakScore > 6 && (sharedViewModel.P2tiebreakScore - sharedViewModel.P1tiebreakScore) > 1){
+                    sharedViewModel.P1gameIndex = 0
+                    sharedViewModel.P2gameIndex = 0
+                    sharedViewModel.P1index = 0
+                    sharedViewModel.P2index = 0
+                    sharedViewModel.P2tiebreakScore = 0
+                    sharedViewModel.P1tiebreakScore = 0
+                    gameP1.text = setScores[sharedViewModel.P1gameIndex].toString()
+                    gameP2.text = setScores[sharedViewModel.P2gameIndex].toString()
+                    scoreP1.text = gameScores[sharedViewModel.P1index].toString()
+                    scoreP2.text = gameScores[sharedViewModel.P2index].toString()
+                    sharedViewModel.setIndexP2 += 1
+                    if (sharedViewModel.setIndexP2 == 1){
                         setP2.text = "1"
                     }
                     else{
@@ -200,8 +196,8 @@ class MatchScoringFrag : Fragment() {
 
 
             else{
-                scoreP2.text = gameScores[P2index].toString()
-                P2index+=1
+                scoreP2.text = gameScores[sharedViewModel.P2index].toString()
+                sharedViewModel.P2index+=1
             }
         }
 

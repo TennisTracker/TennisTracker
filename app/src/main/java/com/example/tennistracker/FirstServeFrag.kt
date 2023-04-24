@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 
 class FirstServeFrag : Fragment() {
 
-    private val sharedViewModel: NewMatchViewModel by activityViewModels()
+    private val newMatchViewModel: NewMatchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
