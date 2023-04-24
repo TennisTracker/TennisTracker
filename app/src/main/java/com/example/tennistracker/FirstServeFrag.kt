@@ -14,6 +14,8 @@ class FirstServeFrag : Fragment() {
 
     private val newMatchViewModel: NewMatchViewModel by activityViewModels()
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,9 +31,11 @@ class FirstServeFrag : Fragment() {
         val btnPlayer2 = view.findViewById<Button>(R.id.btnPlayer2)
 
         btnPlayer1.setOnClickListener{
+            newMatchViewModel.FirstServer = 1
             Navigation.findNavController(view).navigate(R.id.action_firstServeFrag_to_matchScoringFrag)
         }
         btnPlayer2.setOnClickListener{
+            newMatchViewModel.FirstServer = 2
             Navigation.findNavController(view).navigate(R.id.action_firstServeFrag_to_matchScoringFrag)
         }
 

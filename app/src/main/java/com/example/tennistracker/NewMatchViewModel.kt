@@ -28,7 +28,7 @@ class NewMatchViewModel(private  val savedStateHandle: SavedStateHandle): ViewMo
     var P2TotalSecondServeMissed = 0
     var P1TotalReturnMissed = 0
     var P2TotalReturnMissed = 0
-    var currentServer = ""
+    var FirstServer = 0
 
 
 }
