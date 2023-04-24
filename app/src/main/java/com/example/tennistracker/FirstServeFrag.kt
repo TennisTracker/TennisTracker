@@ -14,6 +14,9 @@ class FirstServeFrag : Fragment() {
 
     private val sharedViewModel: NewMatchViewModel by activityViewModels()
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
