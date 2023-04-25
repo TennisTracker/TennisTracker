@@ -21,12 +21,9 @@
         android:id="@+id/txtP1Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginTop="32dp"
         android:text="P1 Name"
         android:textSize="35dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtP2Name"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -34,71 +31,83 @@
         android:id="@+id/txtP2Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="16dp"
         android:text="P2 Name"
         android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pointsWon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="POINTS WON"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="POINTS WON:"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtP1Name" />
+
+    <TextView
+        android:id="@+id/pointsWon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON:"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2Name" />
 
     <TextView
         android:id="@+id/txtP1PointsWon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:text="P1 Points Won"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointsWon" />
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsWon"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1Name" />
 
     <TextView
         android:id="@+id/txtP2PointsWon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="P2 points Won"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointsWon" />
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsWon2"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2Name" />
 
     <TextView
         android:id="@+id/pointsPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="POINTS PLAYED"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="POINTS WON %:"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsWon" />
+
+    <TextView
+        android:id="@+id/pointsPlayed2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON %:"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsWon2" />
 
     <TextView
         android:id="@+id/txtP1PointsPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points Played"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed" />
+        android:text="P1 Points Played"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsPlayed"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1PointsWon" />
 
     <TextView
         android:id="@+id/txtP2PointsPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points Played"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed" />
+        android:text="P2 Points Played"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsPlayed2"
+        app:layout_constraintTop_toTopOf="@+id/pointsPlayed2" />
 
     <Button
         android:id="@+id/btnFinishMatch"
