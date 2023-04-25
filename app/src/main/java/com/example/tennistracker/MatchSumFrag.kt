@@ -12,6 +12,7 @@ import com.example.tennistracker.NewMatchViewModel
 import androidx.fragment.app.activityViewModels
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlin.math.roundToInt
 
 
 class MatchSumFrag : Fragment() {
@@ -43,8 +44,8 @@ class MatchSumFrag : Fragment() {
         txtP2Name.setText(newMatchViewModel.p2Name)
         txtP1PointsWon.setText(newMatchViewModel.P1totalpoints.toString())
         txtP2PointsWon.setText(newMatchViewModel.P2totalpoints.toString())
-        txtP1PointsPlayed.setText(newMatchViewModel.totalpoints.toString())
-        txtP2PointsPlayed.setText(newMatchViewModel.totalpoints.toString())
+        txtP1PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
+        txtP2PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
 
         btnFinishMatch.setOnClickListener {
 
