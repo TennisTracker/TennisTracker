@@ -122,82 +122,19 @@ class MatchScoringFrag : Fragment() {
 
         btnSecondServeMiss.setOnClickListener {
             if (newMatchViewModel.FirstServer == 2) {
-                if (setP1.text == "1" && setP2.text == "1") {
-                    tiebreak(1)
-                    if (newMatchViewModel.P1tiebreakScore > 9 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1) {
-                        newMatchViewModel.setIndexP1 += 1
-                        setP1.text = "MATCH IS DONE"
-                    }
-                } else if (newMatchViewModel.P1index == 4) {
-                    gameScored(1)
-                    if ((setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] < 5) || setScores[newMatchViewModel.P1gameIndex] == 7 && setScores[newMatchViewModel.P2gameIndex] < 6) {
-                        finishSet(1, view)
-                    }
-                } else if (setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] == 6) {
-                    tiebreak(1)
-                    if (newMatchViewModel.P1tiebreakScore > 6 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1) {
-                        finishSet(1, view)
-                    }
-                } else {
-                    pointScored(1)
-                }
+                btnP1Score.performClick()
             }
             else if (newMatchViewModel.FirstServer == 1) {
-                if (setP1.text == "1" && setP2.text == "1") {
-                    tiebreak(2)
-                    if (newMatchViewModel.P2tiebreakScore > 9 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1) {
-                        newMatchViewModel.setIndexP2 += 1
-                        setP2.text = "MATCH IS DONE"
-                        Navigation.findNavController(view)
-                            .navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
-                    }
-                } else if (newMatchViewModel.P2index == 4) {
-                    gameScored(2)
-
-                    if ((setScores[newMatchViewModel.P2gameIndex] == 6 && setScores[newMatchViewModel.P1gameIndex] < 5) || setScores[newMatchViewModel.P2gameIndex] == 7 && setScores[newMatchViewModel.P1gameIndex] < 6) {
-                        finishSet(2, view)
-                    }
-
-                } else if (setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] == 6) {
-                    tiebreak(2)
-                    if (newMatchViewModel.P2tiebreakScore > 6 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1) {
-                        finishSet(2, view)
-                    }
-                } else {
-                    pointScored(2)
-                }
+                btnP2Score.performClick()
             }
         }
-
         btnReturnMiss.setOnClickListener {
             if (newMatchViewModel.FirstServer == 1) {
-                btnP2Score.performClick()
+                btnP1Score.performClick()
             }
 
             else if (newMatchViewModel.FirstServer == 2) {
-                if (setP1.text == "1" && setP2.text == "1") {
-                    tiebreak(2)
-                    if (newMatchViewModel.P2tiebreakScore > 9 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1) {
-                        newMatchViewModel.setIndexP2 += 1
-                        setP2.text = "MATCH IS DONE"
-                        Navigation.findNavController(view)
-                            .navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
-                    }
-                } else if (newMatchViewModel.P2index == 4) {
-                    gameScored(2)
-
-                    if ((setScores[newMatchViewModel.P2gameIndex] == 6 && setScores[newMatchViewModel.P1gameIndex] < 5) || setScores[newMatchViewModel.P2gameIndex] == 7 && setScores[newMatchViewModel.P1gameIndex] < 6) {
-                        finishSet(2, view)
-                    }
-
-                } else if (setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] == 6) {
-                    tiebreak(2)
-                    if (newMatchViewModel.P2tiebreakScore > 6 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1) {
-                        finishSet(2, view)
-                    }
-                } else {
-                    pointScored(2)
-                }
+                btnP2Score.performClick()
             }
         }
 
