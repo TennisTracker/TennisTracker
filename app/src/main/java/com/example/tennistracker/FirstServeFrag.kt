@@ -29,6 +29,8 @@ class FirstServeFrag : Fragment() {
 
         val btnPlayer1 = view.findViewById<Button>(R.id.btnPlayer1)
         val btnPlayer2 = view.findViewById<Button>(R.id.btnPlayer2)
+        btnPlayer1.setText(newMatchViewModel.p1Name)
+        btnPlayer2.setText(newMatchViewModel.p2Name)
 
         btnPlayer1.setOnClickListener{
             newMatchViewModel.FirstServer = 1
