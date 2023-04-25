@@ -54,6 +54,10 @@ class MatchScoringFrag : Fragment() {
         gameP2 = view.findViewById<TextView>(R.id.gameP2)
 
 
+        btnP1Score.setText(newMatchViewModel.p1Name + "  Point")
+        btnP2Score.setText(newMatchViewModel.p2Name + "  Point")
+
+
         btnP1Score.setOnClickListener{
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(1)
