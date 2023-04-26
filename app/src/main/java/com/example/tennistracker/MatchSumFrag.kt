@@ -37,6 +37,15 @@ class MatchSumFrag : Fragment() {
         val txtP2PointsWon = view.findViewById<TextView>(R.id.txtP2PointsWon)
         val txtP1PointsPlayed = view.findViewById<TextView>(R.id.txtP1PointsPlayed)
         val txtP2PointsPlayed = view.findViewById<TextView>(R.id.txtP2PointsPlayed)
+
+        val txtP1TotalFirstServeMissed = view.findViewById<TextView>(R.id.txtP1TotalFirstServeMissed)
+        val txtP2TotalFirstServeMissed = view.findViewById<TextView>(R.id.txtP2TotalFirstServeMissed)
+        val txtP1TotalSecondServeMissed = view.findViewById<TextView>(R.id.txtP1TotalSecondServeMissed)
+        val txtP2TotalSecondServeMissed = view.findViewById<TextView>(R.id.txtP2TotalSecondServeMissed)
+        val txtP1TotalReturnMissed = view.findViewById<TextView>(R.id.txtP1TotalReturnMissed)
+        val txtP2TotalReturnMissed = view.findViewById<TextView>(R.id.txtP2TotalReturnMissed)
+        val txtP1ServesTotal = view.findViewById<TextView>(R.id.txtP1ServesTotal)
+        val txtP2ServesTotal = view.findViewById<TextView>(R.id.txtP2ServesTotal)
         val btnFinishMatch = view.findViewById<Button>(R.id.btnFinishMatch)
 
 
@@ -45,7 +54,17 @@ class MatchSumFrag : Fragment() {
         txtP1PointsWon.setText(newMatchViewModel.P1totalpoints.toString())
         txtP2PointsWon.setText(newMatchViewModel.P2totalpoints.toString())
         txtP1PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
-        txtP2PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
+        txtP2PointsPlayed.setText((newMatchViewModel.P2totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
+
+        txtP1TotalFirstServeMissed.setText(newMatchViewModel.P1TotalFirstServeMissed.toString())
+        txtP1TotalFirstServeMissed.setText(newMatchViewModel.P2TotalFirstServeMissed.toString())
+        txtP1TotalSecondServeMissed.setText((newMatchViewModel.P1TotalSecondServeMissed))
+        txtP2TotalSecondServeMissed.setText((newMatchViewModel.P2TotalSecondServeMissed))
+        txtP1TotalReturnMissed.setText((newMatchViewModel.P1TotalReturnMissed))
+        txtP2TotalReturnMissed.setText((newMatchViewModel.P2TotalReturnMissed))
+        txtP1ServesTotal.setText(newMatchViewModel.P1ServesTotal)
+        txtP2ServesTotal.setText(newMatchViewModel.P2ServesTotal)
+
 
         btnFinishMatch.setOnClickListener {
 
@@ -56,6 +75,14 @@ class MatchSumFrag : Fragment() {
             var pointsPlayed = newMatchViewModel.totalpoints
             var p1pointsPlayed = 0
             var p2pointsPlayed = 0
+            var P1TotalFirstServeMissed = newMatchViewModel.P1TotalFirstServeMissed
+            var P2TotalFirstServeMissed = newMatchViewModel.P2TotalFirstServeMissed
+            var P1TotalSecondServeMissed = newMatchViewModel.P1TotalSecondServeMissed
+            var P2TotalSecondServeMissed = newMatchViewModel.P2TotalSecondServeMissed
+            var P1TotalReturnMissed = newMatchViewModel.P1TotalReturnMissed
+            var P2TotalReturnMissed = newMatchViewModel.P2TotalReturnMissed
+            var P1ServesTotal = newMatchViewModel.P1ServesTotal
+            var P2ServesTotal = newMatchViewModel.P2ServesTotal
 
             database = FirebaseDatabase.getInstance().getReference("Players")
             val Player1 = Player(p1name, p1pointsWon, pointsPlayed)

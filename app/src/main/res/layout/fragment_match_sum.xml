@@ -109,6 +109,70 @@
         app:layout_constraintStart_toEndOf="@+id/pointsPlayed2"
         app:layout_constraintTop_toTopOf="@+id/pointsPlayed2" />
 
+    <TextView
+        android:id="@+id/txtP1TotalFirstServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1 Total First Serve Missed"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtP2TotalFirstServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2 Total First Serve Missed"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtP1TotalSecondServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1 Second Serve Percentage Missed"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtP2TotalSecondServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2 Total Second Serve Missed"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtP1TotalReturnMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1 Total Return Missed"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="544dp" />
+
+    <TextView
+        android:id="@+id/txtP2TotalReturnMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2 Total Return Missed"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <TextView
+        android:id="@+id/txtP1ServesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1Total Serves"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <TextView
+        android:id="@+id/txtP2ServesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2 Total Serves"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="275dp" />
+
     <Button
         android:id="@+id/btnFinishMatch"
         android:layout_width="wrap_content"
