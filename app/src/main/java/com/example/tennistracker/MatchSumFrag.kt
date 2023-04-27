@@ -57,13 +57,13 @@ class MatchSumFrag : Fragment() {
         txtP2PointsPlayed.setText((newMatchViewModel.P2totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
 
         txtP1TotalFirstServeMissed.setText(newMatchViewModel.P1TotalFirstServeMissed.toString())
-        txtP1TotalFirstServeMissed.setText(newMatchViewModel.P2TotalFirstServeMissed.toString())
-        txtP1TotalSecondServeMissed.setText((newMatchViewModel.P1TotalSecondServeMissed))
-        txtP2TotalSecondServeMissed.setText((newMatchViewModel.P2TotalSecondServeMissed))
-        txtP1TotalReturnMissed.setText((newMatchViewModel.P1TotalReturnMissed))
-        txtP2TotalReturnMissed.setText((newMatchViewModel.P2TotalReturnMissed))
-        txtP1ServesTotal.setText(newMatchViewModel.P1ServesTotal)
-        txtP2ServesTotal.setText(newMatchViewModel.P2ServesTotal)
+        txtP2TotalFirstServeMissed.setText(newMatchViewModel.P2TotalFirstServeMissed.toString())
+        txtP1TotalSecondServeMissed.setText((newMatchViewModel.P1TotalSecondServeMissed).toString())
+        txtP2TotalSecondServeMissed.setText((newMatchViewModel.P2TotalSecondServeMissed).toString())
+        txtP1TotalReturnMissed.setText((newMatchViewModel.P1TotalReturnMissed).toString())
+        txtP2TotalReturnMissed.setText((newMatchViewModel.P2TotalReturnMissed).toString())
+        txtP1ServesTotal.setText(newMatchViewModel.P1ServesTotal.toString())
+        txtP2ServesTotal.setText(newMatchViewModel.P2ServesTotal.toString())
 
 
         btnFinishMatch.setOnClickListener {
