@@ -7,6 +7,29 @@
     tools:context=".NewMatch"
     tools:ignore="ExtraText">
 
+
+    <TextView
+        android:id="@+id/P1name"
+        android:layout_width="173dp"
+        android:layout_height="102dp"
+        android:text="P1 Name"
+        android:textSize="30dp"
+        android:translationZ="90dp"
+        app:layout_constraintStart_toStartOf="@+id/btnP1Score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/P2name"
+        android:layout_width="163dp"
+        android:layout_height="106dp"
+        android:text="P2 Name"
+        android:textAlignment="viewEnd"
+        android:textSize="30dp"
+        android:translationZ="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnP2Score" />
+
     <TextView
         android:id="@+id/scoreP1"
         android:layout_width="wrap_content"
@@ -96,7 +119,7 @@
         android:backgroundTint="@color/white"
         android:layout_width="75dp"
         android:layout_height="729dp"
-        android:text="P1 Point"
+        android:text="Point"
         android:textColor="@color/black"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +131,7 @@
         android:backgroundTint="@android:color/white"
         android:layout_width="75dp"
         android:layout_height="729dp"
-        android:text="P2 Point"
+        android:text="Point"
         android:textColor="@color/black"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"

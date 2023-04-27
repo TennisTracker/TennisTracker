@@ -45,7 +45,7 @@ class MatchSumFrag : Fragment() {
         txtP1PointsWon.setText(newMatchViewModel.P1totalpoints.toString())
         txtP2PointsWon.setText(newMatchViewModel.P2totalpoints.toString())
         txtP1PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
-        txtP2PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
+        txtP2PointsPlayed.setText((newMatchViewModel.P2totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
 
         btnFinishMatch.setOnClickListener {
 
