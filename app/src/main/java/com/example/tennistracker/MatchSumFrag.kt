@@ -83,7 +83,6 @@ class MatchSumFrag : Fragment() {
             var P2TotalReturnMissed = newMatchViewModel.P2TotalReturnMissed
             var P1ServesTotal = newMatchViewModel.P1ServesTotal
             var P2ServesTotal = newMatchViewModel.P2ServesTotal
-
             database = FirebaseDatabase.getInstance().getReference("Players")
             val Player1 = Player(p1name, p1pointsWon, pointsPlayed)
 
