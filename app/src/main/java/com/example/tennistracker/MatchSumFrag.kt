@@ -56,6 +56,7 @@ class MatchSumFrag : Fragment() {
         txtP1PointsPlayed.setText((newMatchViewModel.P1totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
         txtP2PointsPlayed.setText((newMatchViewModel.P2totalpoints * 100.0 / newMatchViewModel.totalpoints).roundToInt().toString())
 
+
         txtP1TotalFirstServeMissed.setText(newMatchViewModel.P1TotalFirstServeMissed.toString())
         txtP2TotalFirstServeMissed.setText(newMatchViewModel.P2TotalFirstServeMissed.toString())
         txtP1TotalSecondServeMissed.setText((newMatchViewModel.P1TotalSecondServeMissed).toString())
@@ -64,7 +65,6 @@ class MatchSumFrag : Fragment() {
         txtP2TotalReturnMissed.setText((newMatchViewModel.P2TotalReturnMissed).toString())
         txtP1ServesTotal.setText(newMatchViewModel.P1ServesTotal.toString())
         txtP2ServesTotal.setText(newMatchViewModel.P2ServesTotal.toString())
-
 
         btnFinishMatch.setOnClickListener {
 

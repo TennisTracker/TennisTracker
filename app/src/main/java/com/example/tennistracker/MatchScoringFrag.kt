@@ -40,6 +40,11 @@ class MatchScoringFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val P1NameText = view.findViewById<TextView>(R.id.P1name)
+        val P2NameText = view.findViewById<TextView>(R.id.P2name)
+        P1NameText.setText(newMatchViewModel.p1Name)
+        P2NameText.setText(newMatchViewModel.p2Name)
+
 
         btnP1Score = view.findViewById<Button>(R.id.btnP1Score)
         btnP2Score = view.findViewById<Button>(R.id.btnP2Score)
@@ -54,8 +59,6 @@ class MatchScoringFrag : Fragment() {
         gameP2 = view.findViewById<TextView>(R.id.gameP2)
 
 
-        btnP1Score.setText(newMatchViewModel.p1Name + "  Point")
-        btnP2Score.setText(newMatchViewModel.p2Name + "  Point")
 
 
         btnP1Score.setOnClickListener{
