@@ -62,6 +62,7 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP1Score.setOnClickListener{
+            ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(1)
                 if (newMatchViewModel.P1tiebreakScore > 9 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
@@ -85,21 +86,16 @@ class MatchScoringFrag : Fragment() {
                 pointScored(1)
             }
 
-            if (newMatchViewModel.FirstServer == 1){
-                newMatchViewModel.P1ServesTotal +=1
-            }
-            else{
-                newMatchViewModel.P2ServesTotal +=1
-            }
+
         }
 
 
         btnP2Score.setOnClickListener {
+            ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(2)
                 if (newMatchViewModel.P2tiebreakScore > 9 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1){
                     newMatchViewModel.setIndexP2 += 1
-                    setP2.text = "MATCH IS DONE"
                     Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
                 }
             }
@@ -120,12 +116,6 @@ class MatchScoringFrag : Fragment() {
             else{
                 pointScored(2)
             }
-            if (newMatchViewModel.FirstServer == 1){
-                newMatchViewModel.P1ServesTotal +=1
-            }
-            else{
-                newMatchViewModel.P2ServesTotal +=1
-            }
         }
 
 
@@ -136,6 +126,7 @@ class MatchScoringFrag : Fragment() {
             else if (newMatchViewModel.FirstServer == 2){
                 newMatchViewModel.P2TotalFirstServeMissed += 1
             }
+            ServesHit()
         }
 
 
@@ -175,14 +166,6 @@ class MatchScoringFrag : Fragment() {
             newMatchViewModel.P2totalpoints +=1
         }
         newMatchViewModel.totalpoints +=1
-        if (newMatchViewModel.FirstServer ==1){
-            newMatchViewModel.P1FirstServesHit += 1
-        }
-        else if (newMatchViewModel.FirstServer ==2){
-            newMatchViewModel.P2FirstServesHit +=1
-        }
-
-
     }
 
 
@@ -196,6 +179,7 @@ class MatchScoringFrag : Fragment() {
             scoreP1.text = gameScores[newMatchViewModel.P1index].toString()
             newMatchViewModel.P1index+=1
             newMatchViewModel.P1totalpoints +=1
+
         }
         else if (i==2){
             pointsReset()
@@ -253,7 +237,6 @@ class MatchScoringFrag : Fragment() {
             }
             else{
                 //MATCH DONE FUNCTION
-                setP1.text = "MATCH IS DONE"
                 Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
             }
         }
@@ -281,6 +264,14 @@ class MatchScoringFrag : Fragment() {
         }
         else{
             newMatchViewModel.FirstServer = 1
+        }
+    }
+    public fun ServesHit(){
+        if (newMatchViewModel.FirstServer ==1){
+            newMatchViewModel.P1ServesTotal += 1
+        }
+        else if (newMatchViewModel.FirstServer ==2){
+            newMatchViewModel.P2ServesTotal +=1
         }
     }
 }
