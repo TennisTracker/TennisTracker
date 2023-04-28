@@ -31,8 +31,6 @@ class NewMatchViewModel(private  val savedStateHandle: SavedStateHandle): ViewMo
     var P1ServesTotal = 0
     var P2ServesTotal = 0
     var FirstServer = 0
-    var P1FirstServesHit = 0
-    var P2FirstServesHit = 0
 
 
 }
