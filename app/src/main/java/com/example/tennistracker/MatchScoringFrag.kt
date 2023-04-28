@@ -141,22 +141,22 @@ class MatchScoringFrag : Fragment() {
 
         btnSecondServeMiss.setOnClickListener {
             if (newMatchViewModel.FirstServer == 2) {
-                newMatchViewModel.P1TotalSecondServeMissed +=1
+                newMatchViewModel.P2TotalSecondServeMissed +=1
                 btnP1Score.performClick()
             }
             else if (newMatchViewModel.FirstServer == 1) {
-                newMatchViewModel.P2TotalSecondServeMissed +=1
+                newMatchViewModel.P1TotalSecondServeMissed +=1
                 btnP2Score.performClick()
             }
         }
         btnReturnMiss.setOnClickListener {
             if (newMatchViewModel.FirstServer == 1) {
-                newMatchViewModel.P1TotalReturnMissed +=1
+                newMatchViewModel.P2TotalReturnMissed +=1
                 btnP1Score.performClick()
             }
 
             else if (newMatchViewModel.FirstServer == 2) {
-                newMatchViewModel.P2TotalReturnMissed +=1
+                newMatchViewModel.P1TotalReturnMissed +=1
                 btnP2Score.performClick()
             }
         }
