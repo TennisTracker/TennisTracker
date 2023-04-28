@@ -85,7 +85,7 @@ class MatchScoringFrag : Fragment() {
                 pointScored(1)
             }
 
-            if (newMatchViewModel.FirstServer == 0){
+            if (newMatchViewModel.FirstServer == 1){
                 newMatchViewModel.P1ServesTotal +=1
             }
             else{
@@ -120,17 +120,21 @@ class MatchScoringFrag : Fragment() {
             else{
                 pointScored(2)
             }
+            if (newMatchViewModel.FirstServer == 1){
+                newMatchViewModel.P1ServesTotal +=1
+            }
+            else{
+                newMatchViewModel.P2ServesTotal +=1
+            }
         }
 
 
         btnFirstServeMiss.setOnClickListener{
             if (newMatchViewModel.FirstServer == 1){
                 newMatchViewModel.P1TotalFirstServeMissed += 1
-                newMatchViewModel.P1ServesTotal +=1
             }
             else if (newMatchViewModel.FirstServer == 2){
-                newMatchViewModel.P2TotalFirstServeMissed =+ 1
-                newMatchViewModel.P2ServesTotal +=1
+                newMatchViewModel.P2TotalFirstServeMissed += 1
             }
         }
 
@@ -171,6 +175,13 @@ class MatchScoringFrag : Fragment() {
             newMatchViewModel.P2totalpoints +=1
         }
         newMatchViewModel.totalpoints +=1
+        if (newMatchViewModel.FirstServer ==1){
+            newMatchViewModel.P1FirstServesHit += 1
+        }
+        else if (newMatchViewModel.FirstServer ==2){
+            newMatchViewModel.P2FirstServesHit +=1
+        }
+
 
     }
 
