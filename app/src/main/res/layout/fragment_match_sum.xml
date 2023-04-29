@@ -77,7 +77,7 @@
         android:id="@+id/pointsPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="POINTS WON %:"
+        android:text="POINTS WON %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsWon" />
@@ -113,7 +113,7 @@
         android:id="@+id/txtP1TotalFirstServeMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Serves Missed: "
+        android:text="First Serve %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsPlayed" />
@@ -132,7 +132,7 @@
         android:id="@+id/txtP2TotalFirstServeMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Serves Missed: "
+        android:text="First Serve %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsPlayed2" />
@@ -150,7 +150,7 @@
         android:id="@+id/txtP1TotalSecondServeMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second Serves Missed: "
+        android:text="Second Serve %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtP1TotalFirstServeMissedText" />
@@ -168,7 +168,7 @@
         android:id="@+id/txtP2TotalSecondServeMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second Serves Missed: "
+        android:text="Second Serve %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtP2TotalFirstServeMissedText" />
@@ -186,7 +186,7 @@
         android:id="@+id/txtP1TotalReturnMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Return Missed:"
+        android:text="Return %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtP1ServesTotalText" />
@@ -204,7 +204,7 @@
         android:id="@+id/txtP2TotalReturnMissedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Returns Missed: "
+        android:text="Return %: "
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtP2ServesTotal" />
