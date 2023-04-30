@@ -18,5 +18,12 @@ class MainActivity : AppCompatActivity() {
             val Intent = Intent(this, NewMatch::class.java)
             startActivity(Intent)
         }
+        val scoreboardPointsWonButton = findViewById<Button>(R.id.btnScoreboardPointsWon)
+        scoreboardPointsWonButton.setOnClickListener{
+            val intent = Intent(this, ScoreboardPointsWon::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }

@@ -34,7 +34,7 @@ class NewMatch : AppCompatActivity() {
         val gameP2 = findViewById<TextView>(R.id.gameP2)
         val setP1 = findViewById<TextView>(R.id.setP1)
         val setP2 = findViewById<TextView>(R.id.setP2)
-        val
+
         //initalize player index to 1 to combat onCreate already starting game score at 0
         newMatchViewModel.P1index = 1
         newMatchViewModel.P2index = 1
