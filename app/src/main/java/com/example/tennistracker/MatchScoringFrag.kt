@@ -1,15 +1,19 @@
 package com.example.tennistracker
 
+import android.content.Context
+import android.content.Context.VIBRATOR_SERVICE
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.navigation.Navigation
-import com.example.tennistracker.NewMatchViewModel
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 
 
 class MatchScoringFrag : Fragment() {
@@ -29,6 +33,8 @@ class MatchScoringFrag : Fragment() {
     lateinit var gameP2 : TextView
 
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +45,7 @@ class MatchScoringFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val P1NameText = view.findViewById<TextView>(R.id.P1name)
         val P2NameText = view.findViewById<TextView>(R.id.P2name)
@@ -62,6 +69,7 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP1Score.setOnClickListener{
+            view.performHapticFeedback(100)
             ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(1)
@@ -91,6 +99,8 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP2Score.setOnClickListener {
+            view.performHapticFeedback(100)
+
             ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(2)
@@ -274,4 +284,13 @@ class MatchScoringFrag : Fragment() {
             newMatchViewModel.P2ServesTotal +=1
         }
     }
+
+    private fun shakeItBaby(context: Context) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            (context.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            (context.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(150)
+        }
+    }
+
 }
