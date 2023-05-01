@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,7 +70,7 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP1Score.setOnClickListener{
-            view.performHapticFeedback(100)
+            view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(1)
@@ -99,7 +100,7 @@ class MatchScoringFrag : Fragment() {
 
 
         btnP2Score.setOnClickListener {
-            view.performHapticFeedback(100)
+            view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
 
             ServesHit()
             if (setP1.text == "1" && setP2.text == "1"){
