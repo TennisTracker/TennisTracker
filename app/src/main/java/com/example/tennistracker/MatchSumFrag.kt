@@ -90,18 +90,34 @@ class MatchSumFrag : Fragment() {
             var P1ServesTotal = newMatchViewModel.P1ServesTotal
             var P2ServesTotal = newMatchViewModel.P2ServesTotal
             database = FirebaseDatabase.getInstance().getReference("Players")
-            val Player1 = Player(p1name, p1pointsWon, pointsPlayed)
+            val Player1 = Player(p1name, p1pointsWon, pointsPlayed, P1TotalFirstServeMissed,
+                P1TotalSecondServeMissed, P1TotalReturnMissed, P1ServesTotal)
 
             database.child(p1name).get().addOnSuccessListener{
 
                 if(it.exists()){
+                    //This lines get previous data and add new totals
                     val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
                     p1pointsWon += newPointsWon
                     val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
                     p1pointsPlayed = newPointsPlayed + newMatchViewModel.totalpoints
+                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Int::class.java)!!
+                    P1TotalFirstServeMissed += newFirstServeMissed
+                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Int::class.java)!!
+                    P1TotalSecondServeMissed += newSecondServeMissed
+                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Int::class.java)!!
+                    P1TotalReturnMissed += newTotalServeMissed
+                    val newServesTotal = it.child("servesTotal").getValue(Int::class.java)!!
+                    P1ServesTotal += newServesTotal
+
+                    //This make hashmap of data to update the player info
                     val player = mapOf<String,Int>(
                         "pointsWon" to p1pointsWon,
-                        "pointsPlayed" to p1pointsPlayed
+                        "pointsPlayed" to p1pointsPlayed,
+                        "totalFirstServeMissed" to P1TotalFirstServeMissed,
+                        "totalSecondServeMissed" to P1TotalSecondServeMissed,
+                        "totalReturnMissed" to P1TotalReturnMissed,
+                        "servesTotal" to P1ServesTotal
                     )
                     database.child(p1name).updateChildren(player)
                 }
@@ -112,17 +128,33 @@ class MatchSumFrag : Fragment() {
             }
 
 
-            val Player2 = Player(p2name, p2pointsWon, pointsPlayed)
+            val Player2 = Player(p2name, p2pointsWon, pointsPlayed, P2TotalFirstServeMissed,
+                P2TotalSecondServeMissed, P2TotalReturnMissed, P2ServesTotal)
             database.child(p2name).get().addOnSuccessListener{
 
                 if(it.exists()){
+                    //This lines get previous data and add new totals
                     val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
                     p2pointsWon += newPointsWon
                     val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
                     p2pointsPlayed = newPointsPlayed + newMatchViewModel.totalpoints
+                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Int::class.java)!!
+                    P2TotalFirstServeMissed += newFirstServeMissed
+                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Int::class.java)!!
+                    P2TotalSecondServeMissed += newSecondServeMissed
+                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Int::class.java)!!
+                    P2TotalReturnMissed += newTotalServeMissed
+                    val newServesTotal = it.child("servesTotal").getValue(Int::class.java)!!
+                    P2ServesTotal += newServesTotal
+
+                    //This make hashmap of data to update the player info
                     val player = mapOf<String,Int>(
                         "pointsWon" to p2pointsWon,
-                        "pointsPlayed" to p2pointsPlayed
+                        "pointsPlayed" to p2pointsPlayed,
+                        "totalFirstServeMissed" to P2TotalFirstServeMissed,
+                        "totalSecondServeMissed" to P2TotalSecondServeMissed,
+                        "totalReturnMissed" to P2TotalReturnMissed,
+                        "servesTotal" to P2ServesTotal
                     )
                     database.child(p2name).updateChildren(player)
                 }
