@@ -21,9 +21,17 @@ class MainActivity : AppCompatActivity() {
             val Intent = Intent(this, NewMatch::class.java)
             startActivity(Intent)
         }
+
+        val playerCompButton = findViewById<Button>(R.id.btnPlayerComp)
+        playerCompButton.setOnClickListener{
+            val Intent = Intent(this, PlayerCompActivity::class.java)
+            startActivity(Intent)
+        }
+
         trackServeButton.setOnClickListener{
             val intent = Intent(this, ServeTracker::class.java)
             startActivity(intent)
         }
         }
+
     }

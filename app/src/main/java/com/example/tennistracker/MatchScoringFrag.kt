@@ -63,7 +63,6 @@ class MatchScoringFrag : Fragment() {
 
         btnP1Score.setOnClickListener{
             ServesHit()
-            newMatchViewModel.FirstServeMissBool = false
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(1)
                 if (newMatchViewModel.P1tiebreakScore > 9 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
@@ -86,12 +85,13 @@ class MatchScoringFrag : Fragment() {
             else{
                 pointScored(1)
             }
+
+
         }
 
 
         btnP2Score.setOnClickListener {
             ServesHit()
-            newMatchViewModel.FirstServeMissBool = false
             if (setP1.text == "1" && setP2.text == "1"){
                 tiebreak(2)
                 if (newMatchViewModel.P2tiebreakScore > 9 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1){
@@ -116,21 +116,17 @@ class MatchScoringFrag : Fragment() {
             else{
                 pointScored(2)
             }
-
         }
 
 
         btnFirstServeMiss.setOnClickListener{
-            if (!newMatchViewModel.FirstServeMissBool){
-                newMatchViewModel.FirstServeMissBool = true
-                if (newMatchViewModel.FirstServer == 1){
-                    newMatchViewModel.P1TotalFirstServeMissed += 1
-                }
-                else if (newMatchViewModel.FirstServer == 2){
-                    newMatchViewModel.P2TotalFirstServeMissed += 1
-                }
-                ServesHit()
+            if (newMatchViewModel.FirstServer == 1){
+                newMatchViewModel.P1TotalFirstServeMissed += 1
             }
+            else if (newMatchViewModel.FirstServer == 2){
+                newMatchViewModel.P2TotalFirstServeMissed += 1
+            }
+            ServesHit()
         }
 
 
@@ -222,7 +218,7 @@ class MatchScoringFrag : Fragment() {
         newMatchViewModel.totalpoints += 1
         if ((newMatchViewModel.P1tiebreakScore == 1 && newMatchViewModel.P2tiebreakScore == 0) || (newMatchViewModel.P2tiebreakScore == 1 && newMatchViewModel.P1tiebreakScore == 0)) {
             changeServer()
-            }
+        }
         else if ((((newMatchViewModel.P1tiebreakScore + newMatchViewModel.P2tiebreakScore) - 1) % 2) == 0){
             changeServer()
         }

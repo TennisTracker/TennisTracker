@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatchSumFrag">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Comparison"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtP1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="P1 Name"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/etP1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insert Name"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtP1PointsWon"
+        app:layout_constraintStart_toEndOf="@+id/txtP1Name" />
+
+    <TextView
+        android:id="@+id/txtP2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2 Name"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etP2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insert Name"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtP2PointsWon"
+        app:layout_constraintStart_toEndOf="@+id/txtP2Name" />
+
+    <TextView
+        android:id="@+id/pointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1Name" />
+
+    <TextView
+        android:id="@+id/pointsWon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2Name" />
+
+    <TextView
+        android:id="@+id/txtP1PointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsWon"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1Name" />
+
+    <TextView
+        android:id="@+id/txtP2PointsWon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsWon2"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2Name" />
+
+    <TextView
+        android:id="@+id/pointsPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsWon" />
+
+    <TextView
+        android:id="@+id/pointsPlayed2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POINTS WON %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsWon2" />
+
+    <TextView
+        android:id="@+id/txtP1PointsPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsPlayed"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1PointsWon" />
+
+    <TextView
+        android:id="@+id/txtP2PointsPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/pointsPlayed2"
+        app:layout_constraintTop_toTopOf="@+id/pointsPlayed2" />
+
+    <TextView
+        android:id="@+id/txtP1TotalFirstServeMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Serve %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed" />
+
+    <TextView
+        android:id="@+id/txtP1TotalFirstServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+
+        app:layout_constraintStart_toEndOf="@+id/txtP1TotalFirstServeMissedText"
+        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed" />
+
+    <TextView
+        android:id="@+id/txtP2TotalFirstServeMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Serve %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed2" />
+
+    <TextView
+        android:id="@+id/txtP2TotalFirstServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP2TotalFirstServeMissedText"
+        app:layout_constraintTop_toBottomOf="@+id/pointsPlayed2" />
+
+    <TextView
+        android:id="@+id/txtP1TotalSecondServeMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Second Serve %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1TotalFirstServeMissedText" />
+
+    <TextView
+        android:id="@+id/txtP1TotalSecondServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP1TotalSecondServeMissedText"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1TotalFirstServeMissed" />
+
+    <TextView
+        android:id="@+id/txtP2TotalSecondServeMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Second Serve %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2TotalFirstServeMissedText" />
+
+    <TextView
+        android:id="@+id/txtP2TotalSecondServeMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP2TotalSecondServeMissedText"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2TotalFirstServeMissed" />
+
+    <TextView
+        android:id="@+id/txtP1TotalReturnMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1ServesTotalText" />
+
+    <TextView
+        android:id="@+id/txtP1TotalReturnMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP1TotalReturnMissedText"
+        app:layout_constraintTop_toTopOf="@+id/txtP1TotalReturnMissedText" />
+
+    <TextView
+        android:id="@+id/txtP2TotalReturnMissedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return %: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2ServesTotal" />
+
+    <TextView
+        android:id="@+id/txtP2TotalReturnMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP2TotalReturnMissedText"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2ServesTotal" />
+
+    <TextView
+        android:id="@+id/txtP1ServesTotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Serves: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1TotalSecondServeMissed" />
+
+    <TextView
+        android:id="@+id/txtP1ServesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP1ServesTotalText"
+        app:layout_constraintTop_toBottomOf="@+id/txtP1TotalSecondServeMissed" />
+
+    <TextView
+        android:id="@+id/txtP2ServesTotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Serves: "
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2TotalSecondServeMissed" />
+
+    <TextView
+        android:id="@+id/txtP2ServesTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/txtP2ServesTotalText"
+        app:layout_constraintTop_toBottomOf="@+id/txtP2TotalSecondServeMissed" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

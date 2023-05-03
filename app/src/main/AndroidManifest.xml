@@ -12,6 +12,12 @@
         android:theme="@style/Theme.TennisTracker"
         tools:targetApi="31">
         <activity
+            android:name=".PlayerCompActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LeaderboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewMatch"
             android:exported="false" />
         <activity android:name=".ServeTracker" />
