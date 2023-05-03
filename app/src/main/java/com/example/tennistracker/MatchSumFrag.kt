@@ -13,6 +13,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlin.math.roundToInt
+import kotlin.math.round
 
 
 class MatchSumFrag : Fragment() {
@@ -30,6 +31,7 @@ class MatchSumFrag : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val txtP1Name = view.findViewById<TextView>(R.id.txtP1Name)
         val txtP2Name = view.findViewById<TextView>(R.id.txtP2Name)
@@ -49,6 +51,8 @@ class MatchSumFrag : Fragment() {
         val btnFinishMatch = view.findViewById<Button>(R.id.btnFinishMatch)
 
 
+
+
         txtP1Name.setText(newMatchViewModel.p1Name)
         txtP2Name.setText(newMatchViewModel.p2Name)
         txtP1PointsWon.setText(newMatchViewModel.P1totalpoints.toString())
@@ -61,8 +65,8 @@ class MatchSumFrag : Fragment() {
         txtP2TotalFirstServeMissed.setText((((newMatchViewModel.P2ServesTotal - newMatchViewModel.P2TotalFirstServeMissed) * 100.0)/newMatchViewModel.P2ServesTotal).roundToInt().toString())
 
         //second serve percentage
-        txtP1TotalSecondServeMissed.setText(((newMatchViewModel.P1TotalFirstServeMissed - newMatchViewModel.P1TotalSecondServeMissed)* 100.0 / (newMatchViewModel.P1TotalFirstServeMissed) ).roundToInt().toString())
-        txtP2TotalSecondServeMissed.setText(((newMatchViewModel.P2TotalFirstServeMissed - newMatchViewModel.P2TotalSecondServeMissed) * 100.0 / (newMatchViewModel.P2TotalFirstServeMissed) ).roundToInt().toString())
+        txtP1TotalSecondServeMissed.setText(((newMatchViewModel.P1TotalFirstServeMissed - newMatchViewModel.P1TotalSecondServeMissed) * 100.0 / (newMatchViewModel.P1TotalFirstServeMissed) ).toString())
+        txtP2TotalSecondServeMissed.setText(((newMatchViewModel.P2TotalFirstServeMissed - newMatchViewModel.P2TotalSecondServeMissed) * 100.0 / (newMatchViewModel.P2TotalFirstServeMissed) ).toString())
 
         //return percentage
         txtP1TotalReturnMissed.setText(((newMatchViewModel.P1ServesTotal - newMatchViewModel.P1TotalFirstServeMissed - newMatchViewModel.P1TotalSecondServeMissed - newMatchViewModel.P1TotalReturnMissed)* 100.0 / (newMatchViewModel.P1ServesTotal - newMatchViewModel.P1TotalFirstServeMissed - newMatchViewModel.P1TotalSecondServeMissed)).roundToInt().toString())
@@ -74,13 +78,16 @@ class MatchSumFrag : Fragment() {
 
         btnFinishMatch.setOnClickListener {
 
+
+
+
             val p1name = newMatchViewModel.p1Name
             val p2name = newMatchViewModel.p2Name
             var p1pointsWon = newMatchViewModel.P1totalpoints
             var p2pointsWon = newMatchViewModel.P2totalpoints
             var pointsPlayed = newMatchViewModel.totalpoints
-            var p1pointsPlayed = 0
-            var p2pointsPlayed = 0
+            var p1pointsPlayed = 0.0
+            var p2pointsPlayed = 0.0
             var P1TotalFirstServeMissed = newMatchViewModel.P1TotalFirstServeMissed
             var P2TotalFirstServeMissed = newMatchViewModel.P2TotalFirstServeMissed
             var P1TotalSecondServeMissed = newMatchViewModel.P1TotalSecondServeMissed
@@ -97,21 +104,21 @@ class MatchSumFrag : Fragment() {
 
                 if(it.exists()){
                     //This lines get previous data and add new totals
-                    val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
+                    val newPointsWon = it.child("pointsWon").getValue(Double::class.java)!!
                     p1pointsWon += newPointsWon
-                    val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
+                    val newPointsPlayed = it.child("pointsPlayed").getValue(Double::class.java)!!
                     p1pointsPlayed = newPointsPlayed + newMatchViewModel.totalpoints
-                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Int::class.java)!!
+                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Double::class.java)!!
                     P1TotalFirstServeMissed += newFirstServeMissed
-                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Int::class.java)!!
+                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Double::class.java)!!
                     P1TotalSecondServeMissed += newSecondServeMissed
-                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Int::class.java)!!
+                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Double::class.java)!!
                     P1TotalReturnMissed += newTotalServeMissed
-                    val newServesTotal = it.child("servesTotal").getValue(Int::class.java)!!
+                    val newServesTotal = it.child("servesTotal").getValue(Double::class.java)!!
                     P1ServesTotal += newServesTotal
 
                     //This make hashmap of data to update the player info
-                    val player = mapOf<String,Int>(
+                    val player = mapOf<String,Double>(
                         "pointsWon" to p1pointsWon,
                         "pointsPlayed" to p1pointsPlayed,
                         "totalFirstServeMissed" to P1TotalFirstServeMissed,
@@ -134,21 +141,21 @@ class MatchSumFrag : Fragment() {
 
                 if(it.exists()){
                     //This lines get previous data and add new totals
-                    val newPointsWon = it.child("pointsWon").getValue(Int::class.java)!!
+                    val newPointsWon = it.child("pointsWon").getValue(Double::class.java)!!
                     p2pointsWon += newPointsWon
-                    val newPointsPlayed = it.child("pointsPlayed").getValue(Int::class.java)!!
+                    val newPointsPlayed = it.child("pointsPlayed").getValue(Double::class.java)!!
                     p2pointsPlayed = newPointsPlayed + newMatchViewModel.totalpoints
-                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Int::class.java)!!
+                    val newFirstServeMissed = it.child("totalFirstServeMissed").getValue(Double::class.java)!!
                     P2TotalFirstServeMissed += newFirstServeMissed
-                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Int::class.java)!!
+                    val newSecondServeMissed = it.child("totalSecondServeMissed").getValue(Double::class.java)!!
                     P2TotalSecondServeMissed += newSecondServeMissed
-                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Int::class.java)!!
+                    val newTotalServeMissed = it.child("totalReturnMissed").getValue(Double::class.java)!!
                     P2TotalReturnMissed += newTotalServeMissed
-                    val newServesTotal = it.child("servesTotal").getValue(Int::class.java)!!
+                    val newServesTotal = it.child("servesTotal").getValue(Double::class.java)!!
                     P2ServesTotal += newServesTotal
 
                     //This make hashmap of data to update the player info
-                    val player = mapOf<String,Int>(
+                    val player = mapOf<String,Double>(
                         "pointsWon" to p2pointsWon,
                         "pointsPlayed" to p2pointsPlayed,
                         "totalFirstServeMissed" to P2TotalFirstServeMissed,
