@@ -5,20 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click to Track Serve"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_image" />
 
     <ImageView
         android:id="@+id/my_image"
-        android:layout_width="391dp"
-        android:layout_height="302dp"
+        android:layout_width="402dp"
+        android:layout_height="738dp"
         android:src="@drawable/servicebox_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
