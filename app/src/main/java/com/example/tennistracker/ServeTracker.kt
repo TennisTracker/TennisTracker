@@ -18,7 +18,9 @@ import androidx.fragment.app.Fragment
 
 
 class ServeTracker: AppCompatActivity() {
-    private val coordinateList = mutableListOf<Pair<Float, Float>>()
+    private val coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
+    var returnMade: Boolean = true
+
 
     private val handler = Handler(Looper.getMainLooper())
     private val dotDisappearDelayMs = 2000L
@@ -41,10 +43,11 @@ class ServeTracker: AppCompatActivity() {
             // displayed in the TextView
             mTextViewX.text = "X: $mX"
             mTextViewY.text = "Y: $mY"
-            coordinateList.add(Pair(mX, mY))
+
 
             placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
             showPopupWindow()
+            coordinateList.add(Triple(mX, mY, returnMade))
             true
 
         }
@@ -97,11 +100,11 @@ class ServeTracker: AppCompatActivity() {
         val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
         val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
         buttonOption1.setOnClickListener {
-            // Option 1 selected
+            returnMade = true
             popupWindow.dismiss()
         }
         buttonOption2.setOnClickListener {
-            // Option 2 selected
+            returnMade = false
             popupWindow.dismiss()
         }
 
