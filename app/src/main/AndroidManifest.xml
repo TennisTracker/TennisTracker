@@ -21,6 +21,8 @@
             android:name=".NewMatch"
             android:exported="false" />
         <activity android:name=".ServeTracker" />
+        <activity android:name=".ServeTrackerSum" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

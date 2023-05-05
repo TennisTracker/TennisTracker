@@ -17,9 +17,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-
+public val coordinateList = mutableListOf<Pair<Float, Float>>()
 class ServeTracker: AppCompatActivity() {
-    private val coordinateList = mutableListOf<Pair<Float, Float>>()
+
 
     private val handler = Handler(Looper.getMainLooper())
     private val dotDisappearDelayMs = 2000L
