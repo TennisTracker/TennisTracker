@@ -85,31 +85,35 @@ class ServeTracker: AppCompatActivity() {
         }, dotDisappearDelayMs)
     }
 
+    private var popupWindow: PopupWindow? = null
+
     private fun showPopupWindow() {
-        // Inflate the popup layout
-        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val popupView = inflater.inflate(R.layout.popup_window, null)
+        if (popupWindow == null) {
+            // Inflate the popup layout
+            val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val popupView = inflater.inflate(R.layout.popup_window, null)
 
-        // Create the PopupWindow object
-        val popupWindow = PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true)
+            // Create the PopupWindow object
+            popupWindow = PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true)
 
-        // Set a background drawable for the PopupWindow
-        popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            // Set a background drawable for the PopupWindow
+            popupWindow?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        // Set a click listener for the buttons
-        val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
-        val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
-        buttonOption1.setOnClickListener {
-            returnMade = true
-            popupWindow.dismiss()
-        }
-        buttonOption2.setOnClickListener {
-            returnMade = false
-            popupWindow.dismiss()
+            // Set a click listener for the buttons
+            val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
+            val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
+            buttonOption1.setOnClickListener {
+                returnMade = true
+                popupWindow?.dismiss()
+            }
+            buttonOption2.setOnClickListener {
+                returnMade = false
+                popupWindow?.dismiss()
+            }
         }
 
         // Show the PopupWindow at the center of the screen
-        popupWindow.showAtLocation(window.decorView, Gravity.CENTER, 0, 0)
+        popupWindow?.showAtLocation(window.decorView, Gravity.CENTER, 0, 0)
     }
 
 
