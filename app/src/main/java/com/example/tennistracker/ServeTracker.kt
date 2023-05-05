@@ -2,6 +2,7 @@ package com.example.tennistracker
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
@@ -27,6 +28,8 @@ class ServeTracker: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_servespot_tracker)
 
+        val endTracker = findViewById<Button>(R.id.end_tracker)
+
         val mRelativeLayout = findViewById<RelativeLayout>(R.id.relative_layout_1)
         val mTextViewX = findViewById<TextView>(R.id.text_view_1)
         val mTextViewY = findViewById<TextView>(R.id.text_view_2)
@@ -49,16 +52,16 @@ class ServeTracker: AppCompatActivity() {
 
         }
 
+        endTracker.setOnClickListener {
+            val Intent = Intent(this, ServeTrackerSum::class.java)
+            startActivity(Intent)
+        }
+
 
 
     }
 
-    public fun onClick(view: View){
-        val values = IntArray(2)
-        view.getLocationOnScreen(values)
-        System.out.println(values[0])
-        System.out.println(values[1])
-    }
+
 
 
     private fun placeDot(x: Int, y: Int, parentView: ViewGroup) {
