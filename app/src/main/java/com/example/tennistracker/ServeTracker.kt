@@ -17,10 +17,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-public val coordinateList = mutableListOf<Pair<Float, Float>>()
+public val coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
 class ServeTracker: AppCompatActivity() {
-=======
-    private val coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
+
     var returnMade: Boolean = true
 
 
