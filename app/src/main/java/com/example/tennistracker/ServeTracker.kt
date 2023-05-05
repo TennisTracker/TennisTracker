@@ -1,17 +1,18 @@
 package com.example.tennistracker
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Point
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
@@ -43,7 +44,7 @@ class ServeTracker: AppCompatActivity() {
             coordinateList.add(Pair(mX, mY))
 
             placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
-
+            showPopupWindow()
             true
 
         }
@@ -79,6 +80,33 @@ class ServeTracker: AppCompatActivity() {
         handler.postDelayed({
             parentView.removeView(dot)
         }, dotDisappearDelayMs)
+    }
+
+    private fun showPopupWindow() {
+        // Inflate the popup layout
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val popupView = inflater.inflate(R.layout.popup_window, null)
+
+        // Create the PopupWindow object
+        val popupWindow = PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true)
+
+        // Set a background drawable for the PopupWindow
+        popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // Set a click listener for the buttons
+        val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
+        val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
+        buttonOption1.setOnClickListener {
+            // Option 1 selected
+            popupWindow.dismiss()
+        }
+        buttonOption2.setOnClickListener {
+            // Option 2 selected
+            popupWindow.dismiss()
+        }
+
+        // Show the PopupWindow at the center of the screen
+        popupWindow.showAtLocation(window.decorView, Gravity.CENTER, 0, 0)
     }
 
 
