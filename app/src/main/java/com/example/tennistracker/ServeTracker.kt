@@ -17,7 +17,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-public val coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
+public var coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
 class ServeTracker: AppCompatActivity() {
 
     var returnMade: Boolean = true
@@ -32,6 +32,7 @@ class ServeTracker: AppCompatActivity() {
         setContentView(R.layout.fragment_servespot_tracker)
 
         val endTracker = findViewById<Button>(R.id.end_tracker)
+        val undoButton = findViewById<Button>(R.id.undo_button)
 
         val mRelativeLayout = findViewById<RelativeLayout>(R.id.relative_layout_1)
         val mTextViewX = findViewById<TextView>(R.id.text_view_1)
@@ -62,6 +63,13 @@ class ServeTracker: AppCompatActivity() {
         endTracker.setOnClickListener {
             val Intent = Intent(this, ServeTrackerSum::class.java)
             startActivity(Intent)
+        }
+
+        undoButton.setOnClickListener {
+            if (coordinateList.isNotEmpty()) {
+                Toast.makeText(this, "Undo button clicked", Toast.LENGTH_SHORT).show()
+                coordinateList = coordinateList.dropLast(1).toMutableList()
+            }
         }
 
 
