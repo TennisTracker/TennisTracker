@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlin.math.roundToInt
 import kotlin.math.round
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MatchSumFrag : Fragment() {
@@ -96,6 +98,45 @@ class MatchSumFrag : Fragment() {
             var P2TotalReturnMissed = newMatchViewModel.P2TotalReturnMissed
             var P1ServesTotal = newMatchViewModel.P1ServesTotal
             var P2ServesTotal = newMatchViewModel.P2ServesTotal
+
+            //This will get the current date and time
+            val sdf = SimpleDateFormat("MM-dd-yyyy ''HH:mm:ss z")
+            val currentDateAndTime = sdf.format(Date())
+
+
+            //Get the number of matches in the database
+            database = FirebaseDatabase.getInstance().getReference("Players")
+            var numberMatches = 0
+            database.child("numMatches").get().addOnSuccessListener {
+                if(it.exists()){
+                    numberMatches = it.child("matches").getValue(Int::class.java)!!
+                    var newNumberMatches = numberMatches + 1
+
+                    val constant = mapOf<String,Int>(
+                        "matches" to newNumberMatches
+                    )
+
+                    database.child("numMatches").updateChildren(constant)
+                }
+                else{
+                    val constant = DatabaseConstants(0)
+                    database.child("numMatches").setValue(constant)
+                }
+            }
+
+
+            //Send match information to the database
+            database = FirebaseDatabase.getInstance().getReference("Players")
+            val match = Match(p1name, p1pointsWon, P1TotalFirstServeMissed, P1TotalSecondServeMissed, P1TotalReturnMissed,
+            P1ServesTotal, p2name, p2pointsWon, P2TotalFirstServeMissed, P2TotalSecondServeMissed, P2TotalReturnMissed,
+            P2ServesTotal, currentDateAndTime)
+
+            database.child(numberMatches.toString()).get().addOnSuccessListener {
+                database.child(numberMatches.toString()).setValue(match)
+            }
+
+
+            //Start sending player info to database
             database = FirebaseDatabase.getInstance().getReference("Players")
             val Player1 = Player(p1name, p1pointsWon, pointsPlayed, P1TotalFirstServeMissed,
                 P1TotalSecondServeMissed, P1TotalReturnMissed, P1ServesTotal)
