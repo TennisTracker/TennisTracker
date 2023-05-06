@@ -48,11 +48,14 @@ class ServeTracker: AppCompatActivity() {
             mTextViewX.text = "X: $mX"
             mTextViewY.text = "Y: $mY"
 
+            if ((mY.toInt() > 589) && (mY.toInt() < 1432)){
+                placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
+                showPopupWindow()
+                coordinateList.add(Triple(mX, mY, returnMade))
+                return@setOnTouchListener true
+            }
+            false
 
-            placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
-            showPopupWindow()
-            coordinateList.add(Triple(mX, mY, returnMade))
-            true
 
         }
 
