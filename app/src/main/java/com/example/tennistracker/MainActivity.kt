@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         //This gets button id, when we click on new match button we go to activity, NewMatch
         val newMatchButton = findViewById<Button>(R.id.btnNewMatch)
         val trackServeButton = findViewById<Button>(R.id.btnTrackServes)
+        val prevMatchButton = findViewById<Button>(R.id.btnPrevMatches)
         newMatchButton.setOnClickListener{
             val Intent = Intent(this, NewMatch::class.java)
             startActivity(Intent)
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ServeTracker::class.java)
             startActivity(intent)
         }
+
+        prevMatchButton.setOnClickListener{
+            val intent = Intent(this, PrevMatches::class.java)
+            startActivity(intent)
+        }
+
         }
 
     }

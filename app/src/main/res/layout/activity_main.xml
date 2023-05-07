@@ -18,7 +18,6 @@
         android:fontFamily="sans-serif-black"
         android:text="Home Screen"
         android:textSize="40dp"
-        android:textColor="#FF000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,5 +52,16 @@
         app:layout_constraintTop_toBottomOf="@+id/btnNewMatch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnTrackServes" />
+
+
+    <Button
+        android:id="@+id/btnPrevMatches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Matches"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlayerComp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
