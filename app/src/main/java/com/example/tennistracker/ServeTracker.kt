@@ -21,7 +21,8 @@ public var coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
 class ServeTracker: AppCompatActivity() {
 
     var returnMade: Boolean = true
-
+    var mX: Float = 0F
+    var mY: Float = 0F
 
 
     private val handler = Handler(Looper.getMainLooper())
@@ -41,8 +42,8 @@ class ServeTracker: AppCompatActivity() {
         mRelativeLayout.setOnTouchListener { _, motionEvent ->
 
             // X and Y values are fetched
-            val mX = motionEvent.x
-            val mY = motionEvent.y
+            mX = motionEvent.x
+            mY = motionEvent.y
 
             // X and Y values are
             // displayed in the TextView
@@ -52,7 +53,6 @@ class ServeTracker: AppCompatActivity() {
             if ((mY.toInt() > 589) && (mY.toInt() < 1432)){
                 placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
                 showPopupWindow()
-                coordinateList.add(Triple(mX, mY, returnMade))
                 return@setOnTouchListener true
             }
             false
@@ -68,7 +68,7 @@ class ServeTracker: AppCompatActivity() {
         undoButton.setOnClickListener {
             if (coordinateList.isNotEmpty()) {
                 Toast.makeText(this, "Undo button clicked", Toast.LENGTH_SHORT).show()
-                coordinateList = coordinateList.dropLast(1).toMutableList()
+                coordinateList.removeLastOrNull()
             }
         }
 
@@ -118,11 +118,11 @@ class ServeTracker: AppCompatActivity() {
             val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
             val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
             buttonOption1.setOnClickListener {
-                returnMade = true
+                coordinateList.add(Triple(mX, mY, true))
                 popupWindow?.dismiss()
             }
             buttonOption2.setOnClickListener {
-                returnMade = false
+                coordinateList.add(Triple(mX, mY, false))
                 popupWindow?.dismiss()
             }
         }
