@@ -23,6 +23,7 @@ class ServeTrackerSum: AppCompatActivity() {
 
 
         for (triple in coordinateList) {
+            System.out.println(triple)
             if (triple.third == false){
                 placeDot(triple.first, triple.second, mRelativeLayout, "RED")
             }
