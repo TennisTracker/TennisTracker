@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class PrevMatchesAdapter(private val prevMatchesList: ArrayList<Match>):
-RecyclerView.Adapter<PrevMatchesAdapter.PrevMatchesViewHolder> {
+    RecyclerView.Adapter<PrevMatchesAdapter.PrevMatchesViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrevMatchesViewHolder {
