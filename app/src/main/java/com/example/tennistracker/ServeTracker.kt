@@ -36,8 +36,6 @@ class ServeTracker: AppCompatActivity() {
         val undoButton = findViewById<Button>(R.id.undo_button)
 
         val mRelativeLayout = findViewById<RelativeLayout>(R.id.relative_layout_1)
-        val mTextViewX = findViewById<TextView>(R.id.text_view_1)
-        val mTextViewY = findViewById<TextView>(R.id.text_view_2)
 
         mRelativeLayout.setOnTouchListener { _, motionEvent ->
 
@@ -47,8 +45,7 @@ class ServeTracker: AppCompatActivity() {
 
             // X and Y values are
             // displayed in the TextView
-            mTextViewX.text = "X: $mX"
-            mTextViewY.text = "Y: $mY"
+
 
             if ((mY.toInt() > 589) && (mY.toInt() < 1432)){
                 placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
