@@ -136,10 +136,10 @@ class MatchSumFrag : Fragment() {
 
             //If the third set is played then add it to the final score
             if((newMatchViewModel.Set1P1.toInt() > newMatchViewModel.Set1P2.toInt()) && (newMatchViewModel.Set2P1.toInt() < newMatchViewModel.Set2P2.toInt())){
-                final_Score = final_Score + "\nMatch 3: " + match_Score3
+                final_Score = final_Score + "\tMatch 3: " + match_Score3
             }
             if((newMatchViewModel.Set1P1.toInt() < newMatchViewModel.Set1P2.toInt()) && (newMatchViewModel.Set2P1.toInt() > newMatchViewModel.Set2P2.toInt())){
-                final_Score = final_Score + "\nMatch 3: " + match_Score3
+                final_Score = final_Score + "\tMatch 3: " + match_Score3
             }
 
             val match = Match(p1name, p1pointsWon, P1TotalFirstServeMissed, P1TotalSecondServeMissed, P1TotalReturnMissed,
