@@ -7,64 +7,67 @@
     tools:context=".PrevMatches">
 
     <TextView
-        android:text="Example Item"
-        android:id="@+id/item_1"
+        android:id="@+id/game1Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
         android:layout_marginBottom="500dp"
+        android:text="Example Item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:text="Example Item"
-        android:id="@+id/item_2"
+        android:id="@+id/game2Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_1" />
+        app:layout_constraintTop_toBottomOf="@+id/game1Players" />
+
     <TextView
-        android:text="Example Item"
-        android:id="@+id/item_3"
+        android:id="@+id/game3Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_2" />
+        app:layout_constraintTop_toBottomOf="@+id/game2Players" />
+
     <TextView
-        android:text="Example Item"
-        android:id="@+id/item_4"
+        android:id="@+id/game4Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_3" />
+        app:layout_constraintTop_toBottomOf="@+id/game3Players" />
+
     <TextView
-        android:text="Example Item"
-        android:id="@+id/item_5"
+        android:id="@+id/game5Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_4" />
+        app:layout_constraintTop_toBottomOf="@+id/game4Players" />
 
     <Button
         android:id="@+id/next_page_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -72,10 +75,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Prev"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
