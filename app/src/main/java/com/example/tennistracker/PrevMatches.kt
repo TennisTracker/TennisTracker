@@ -76,10 +76,13 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.item1.text = p1name + " Vs "+ p2name
+                binding.date1.text = date
             }
             else{
                 binding.item1.text = ""
+                binding.date1.text = ""
             }
 
 
@@ -92,10 +95,13 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.item2.text = p1name + " Vs "+ p2name
+                binding.date2.text = date
             }
             else{
                 binding.item2.text = ""
+                binding.date2.text = ""
             }
 
 
@@ -108,10 +114,13 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.item3.text = p1name + " Vs "+ p2name
+                binding.date3.text = date
             }
             else{
                 binding.item3.text = ""
+                binding.date3.text = ""
             }
 
 
@@ -124,10 +133,13 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.item4.text = p1name + " Vs "+ p2name
+                binding.date4.text = date
             }
             else{
                 binding.item4.text = ""
+                binding.date4.text = ""
             }
 
 
@@ -140,17 +152,19 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.item5.text = p1name + " Vs "+ p2name
+                binding.date5.text = date
             }
             else{
                 binding.item5.text = ""
+                binding.date5.text = ""
             }
 
 
         }
 
     }
-
 
 
 
