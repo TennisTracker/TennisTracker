@@ -14,4 +14,5 @@ data class Match(
     val p2totalReturnMissed: Double,
     val p2servesTotal: Double,
     val dateAndTime: String,
+    val matchScore: String
 )
