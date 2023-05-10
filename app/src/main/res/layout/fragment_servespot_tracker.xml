@@ -18,27 +18,16 @@
         android:layout_marginTop="0dp"
         android:text="END TRACKER"
         android:textSize="20dp" />
-
-
-
-    <TextView
-        android:id="@+id/text_view_1"
+    <Button
+        android:id = "@+id/undo_button"
         android:layout_width="wrap_content"
-        android:layout_height="60sp"
-        android:layout_marginTop="50sp"
-        android:layout_centerHorizontal="true"
-        android:text="X:"
-        android:textSize="50sp"/>
+        android:layout_height="wrap_content"
+        android:text = "UNDO"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:textSize = "20dp" />
 
-    <TextView
-        android:id="@+id/text_view_2"
-        android:layout_width="wrap_content"
-        android:layout_height="60sp"
-        android:layout_marginTop="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/text_view_1"
-        android:text="Y:"
-        android:textSize="50sp" />
+
 
     <ImageView
         android:id="@+id/my_image"

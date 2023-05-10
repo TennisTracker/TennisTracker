@@ -59,6 +59,13 @@ class MatchScoringFrag : Fragment() {
         gameP2 = view.findViewById<TextView>(R.id.gameP2)
 
 
+        //Set the Score, game, and set onCreate
+        scoreP1.text = gameScores[newMatchViewModel.P1index - 1].toString()
+        scoreP2.text = gameScores[newMatchViewModel.P2index - 1].toString()
+        gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
+        gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
+        setP1.text = newMatchViewModel.setIndexP1.toString()
+        setP2.text = newMatchViewModel.setIndexP2.toString()
 
 
         btnP1Score.setOnClickListener{
@@ -227,7 +234,21 @@ class MatchScoringFrag : Fragment() {
 
     public fun finishSet(i:Int, view:View){
         pointsReset()
+
+        if (newMatchViewModel.setIndexP1 == 1 && newMatchViewModel.setIndexP2==1){
+            newMatchViewModel.Set1P1 = view.findViewById<TextView>(R.id.setP1).toString()
+            newMatchViewModel.Set1P2 = view.findViewById<TextView>(R.id.setP2).toString()
+        }
+        else if (newMatchViewModel.setIndexP1 + newMatchViewModel.setIndexP2 == 3){
+            newMatchViewModel.Set2P1 = view.findViewById<TextView>(R.id.setP1).toString()
+            newMatchViewModel.Set2P2 = view.findViewById<TextView>(R.id.setP2).toString()
+        }
+        else {
+            newMatchViewModel.Set3P1 = newMatchViewModel.P1tiebreakScore.toString()
+            newMatchViewModel.Set3P2 = newMatchViewModel.P2tiebreakScore.toString()
+        }
         gamesReset()
+
         gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
         gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
         if (i == 1){
@@ -237,6 +258,7 @@ class MatchScoringFrag : Fragment() {
             }
             else{
                 //MATCH DONE FUNCTION
+
                 Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
             }
         }
@@ -250,6 +272,8 @@ class MatchScoringFrag : Fragment() {
                 setP2.text = "MATCH IS DONE"
                 Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
             }
+
+
         }
         newMatchViewModel.P1tiebreakScore = 0
         newMatchViewModel.P2tiebreakScore = 0

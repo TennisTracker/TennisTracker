@@ -32,6 +32,12 @@ class NewMatchViewModel(private  val savedStateHandle: SavedStateHandle): ViewMo
     var P2ServesTotal = 0.0
     var FirstServer = 0
     var FirstServeMissBool = false
+    var Set1P1 = "0"
+    var Set1P2 = "0"
+    var Set2P1 = "0"
+    var Set2P2 = "0"
+    var Set3P1 = "0"
+    var Set3P2 = "0"
 
 
 }

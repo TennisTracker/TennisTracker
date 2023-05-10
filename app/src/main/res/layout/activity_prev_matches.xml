@@ -7,145 +7,139 @@
     tools:context=".PrevMatches">
 
     <TextView
-        android:id="@+id/item_1"
+        android:id="@+id/game1Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginBottom="500dp"
         android:text="Example Item"
-        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/date_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Example Date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_1" />
-
     <ImageView
         android:id="@+id/button1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/clipart1384810"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_1" />
-
+        app:layout_constraintTop_toBottomOf="@+id/game1Players" />
     <TextView
-        android:id="@+id/item_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Example Item"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_1" />
-
-    <TextView
-        android:id="@+id/date_2"
+        android:id="@+id/date_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Example Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_2" />
+        app:layout_constraintTop_toBottomOf="@+id/game1Players" />
 
+    <TextView
+        android:id="@+id/game2Players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Example Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game1Players" />
     <ImageView
         android:id="@+id/button2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/clipart1384810"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/game2Players" />
     <TextView
-        android:id="@+id/item_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Example Item"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_2" />
-    <TextView
-        android:id="@+id/date_3"
+        android:id="@+id/date_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Example Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_3" />
+        app:layout_constraintTop_toBottomOf="@+id/game2Players" />
+
+    <TextView
+        android:id="@+id/game3Players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Example Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game2Players" />
     <ImageView
         android:id="@+id/button3"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/clipart1384810"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_3" />
-
+        app:layout_constraintTop_toBottomOf="@+id/game3Players" />
     <TextView
-        android:id="@+id/item_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Example Item"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_3" />
-    <TextView
-        android:id="@+id/date_4"
+        android:id="@+id/date_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Example Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_4" />
+        app:layout_constraintTop_toBottomOf="@+id/game3Players" />
+
+    <TextView
+        android:id="@+id/game4Players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Example Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game3Players" />
     <ImageView
         android:id="@+id/button4"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/clipart1384810"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_4" />
+        app:layout_constraintTop_toBottomOf="@+id/game4Players" />
     <TextView
-        android:id="@+id/item_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Example Item"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_4" />
-    <TextView
-        android:id="@+id/date_5"
+        android:id="@+id/date_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Example Date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_5" />
+        app:layout_constraintTop_toBottomOf="@+id/game4Players" />
+
+    <TextView
+        android:id="@+id/game5Players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Example Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game4Players" />
+
     <ImageView
         android:id="@+id/button5"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/clipart1384810"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_5" />
-
+        app:layout_constraintTop_toBottomOf="@+id/game5Players" />
+    <TextView
+        android:id="@+id/date_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game5Players" />
 
     <Button
         android:id="@+id/next_page_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/baseline_arrow_forward_24"
         app:iconGravity="end"/>
 
@@ -154,11 +148,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Prev"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:icon="@drawable/baseline_arrow_back_24"
-        app:iconGravity="start"
-        />
+        app:iconGravity="start"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
