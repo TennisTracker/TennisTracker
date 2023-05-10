@@ -59,6 +59,13 @@ class MatchScoringFrag : Fragment() {
         gameP2 = view.findViewById<TextView>(R.id.gameP2)
 
 
+        //Set the Score, game, and set onCreate
+        scoreP1.text = gameScores[newMatchViewModel.P1index - 1].toString()
+        scoreP2.text = gameScores[newMatchViewModel.P2index - 1].toString()
+        gameP1.text = setScores[newMatchViewModel.P1gameIndex].toString()
+        gameP2.text = setScores[newMatchViewModel.P2gameIndex].toString()
+        setP1.text = newMatchViewModel.setIndexP1.toString()
+        setP2.text = newMatchViewModel.setIndexP2.toString()
 
 
         btnP1Score.setOnClickListener{

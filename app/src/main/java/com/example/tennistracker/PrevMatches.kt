@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tennistracker.databinding.ActivityPrevMatchesBinding
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.coroutines.GlobalScope
@@ -33,6 +31,8 @@ class PrevMatches : AppCompatActivity() {
         binding = ActivityPrevMatchesBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        //Get the number of matches in database
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child("numMatches").get().addOnSuccessListener {
             if(it.exists()){
@@ -40,6 +40,7 @@ class PrevMatches : AppCompatActivity() {
             }
         }
 
+        //Set the text view on screen
         updateItem1(PrevMatchViewModel.pageIndex)
         updateItem2(PrevMatchViewModel.pageIndex)
         updateItem3(PrevMatchViewModel.pageIndex)
@@ -47,7 +48,7 @@ class PrevMatches : AppCompatActivity() {
         updateItem5(PrevMatchViewModel.pageIndex)
 
         binding.nextPageButton.setOnClickListener {
-            if((PrevMatchViewModel.numMatches % 5)+1 >= PrevMatchViewModel.pageIndex) {
+            if(PrevMatchViewModel.pageIndex <= (PrevMatchViewModel.numMatches / 5)+1) {
                 PrevMatchViewModel.pageIndex += 1
                 updateItem1(PrevMatchViewModel.pageIndex)
                 updateItem2(PrevMatchViewModel.pageIndex)
@@ -66,8 +67,6 @@ class PrevMatches : AppCompatActivity() {
                 updateItem5(PrevMatchViewModel.pageIndex)
             }
         }
-
-
     }
 
     fun updateItem1(index:Int){
@@ -76,15 +75,12 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
-                binding.item1.text = p1name + " Vs "+ p2name
+                binding.game1Players.text = p1name + " Vs "+ p2name
             }
             else{
-                binding.item1.text = ""
+                binding.game1Players.text = ""
             }
-
-
         }
-
     }
     fun updateItem2(index:Int){
         database = FirebaseDatabase.getInstance().getReference("Players")
@@ -92,10 +88,10 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
-                binding.item2.text = p1name + " Vs "+ p2name
+                binding.game2Players.text = p1name + " Vs "+ p2name
             }
             else{
-                binding.item2.text = ""
+                binding.game2Players.text = ""
             }
 
 
@@ -108,10 +104,10 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
-                binding.item3.text = p1name + " Vs "+ p2name
+                binding.game3Players.text = p1name + " Vs "+ p2name
             }
             else{
-                binding.item3.text = ""
+                binding.game3Players.text = ""
             }
 
 
@@ -124,10 +120,10 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
-                binding.item4.text = p1name + " Vs "+ p2name
+                binding.game4Players.text = p1name + " Vs "+ p2name
             }
             else{
-                binding.item4.text = ""
+                binding.game4Players.text = ""
             }
 
 
@@ -140,10 +136,10 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
-                binding.item5.text = p1name + " Vs "+ p2name
+                binding.game5Players.text = p1name + " Vs "+ p2name
             }
             else{
-                binding.item5.text = ""
+                binding.game5Players.text = ""
             }
 
 
