@@ -9,14 +9,16 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Home Screen"
+        android:text="Tennis Tracker"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,44 +26,57 @@
 
     <Button
         android:id="@+id/btnNewMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="200dp"
         android:text="New Match"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textSize="30sp"
+        app:icon="@drawable/baseline_add_24"
+        app:iconGravity="top"
+        app:iconSize="50dp"
+        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnTrackServes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="50dp"
         android:text="Track Serves"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
+        app:icon="@drawable/baseline_sports_tennis_24"
+        app:iconGravity="top"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnPlayerComp"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewMatch" />
-        
-        <Button
+        app:layout_constraintTop_toTopOf="@+id/btnNewMatch" />
 
+    <Button
         android:id="@+id/btnPlayerComp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Player Comparison"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewMatch"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:text="Compare Players"
+        android:textSize="20sp"
+        app:icon="@drawable/baseline_people_24"
+        app:iconGravity="top"
+        app:iconSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnTrackServes" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNewMatch" />
 
 
     <Button
         android:id="@+id/btnPrevMatches"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="50dp"
         android:text="Previous Matches"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20dp"
+        app:icon="@drawable/baseline_pending_actions_24"
+        app:iconGravity="top"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayerComp" />
+        app:layout_constraintTop_toTopOf="@+id/btnPlayerComp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

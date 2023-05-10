@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tennistracker.databinding.ActivityPrevMatchesBinding
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.coroutines.GlobalScope
@@ -67,6 +69,8 @@ class PrevMatches : AppCompatActivity() {
                 updateItem5(PrevMatchViewModel.pageIndex)
             }
         }
+
+
     }
 
     fun updateItem1(index:Int){
@@ -75,12 +79,19 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
                 binding.game1Players.text = p1name + " Vs "+ p2name
+                binding.date1.text = date
             }
             else{
                 binding.game1Players.text = ""
+                binding.date1.text = ""
+
             }
+
+
         }
+
     }
     fun updateItem2(index:Int){
         database = FirebaseDatabase.getInstance().getReference("Players")
@@ -89,9 +100,13 @@ class PrevMatches : AppCompatActivity() {
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
                 binding.game2Players.text = p1name + " Vs "+ p2name
+                val date = it.child("dateAndTime").getValue(String::class.java)
+                binding.game2Players.text = p1name + " Vs "+ p2name
+                binding.date2.text = date
             }
             else{
                 binding.game2Players.text = ""
+                binding.date2.text = ""
             }
 
 
@@ -104,9 +119,12 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
+                binding.date3.text = date
                 binding.game3Players.text = p1name + " Vs "+ p2name
             }
             else{
+                binding.date3.text = ""
                 binding.game3Players.text = ""
             }
 
@@ -120,10 +138,13 @@ class PrevMatches : AppCompatActivity() {
             if(it.exists()){
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
+                val date = it.child("dateAndTime").getValue(String::class.java)
+                binding.date4.text = date
                 binding.game4Players.text = p1name + " Vs "+ p2name
             }
             else{
                 binding.game4Players.text = ""
+                binding.date4.text = ""
             }
 
 
@@ -137,9 +158,12 @@ class PrevMatches : AppCompatActivity() {
                 val p1name = it.child("p1name").getValue(String::class.java)
                 val p2name = it.child("p2name").getValue(String::class.java)
                 binding.game5Players.text = p1name + " Vs "+ p2name
+                val date = it.child("dateAndTime").getValue(String::class.java)
+                binding.date5.text = date
             }
             else{
                 binding.game5Players.text = ""
+                binding.date5.text = ""
             }
 
 
