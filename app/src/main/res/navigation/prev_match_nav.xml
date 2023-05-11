@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/prev_match_nav.xml"
+    app:startDestination="@id/pageListFragment">
+
+    <fragment
+        android:id="@+id/pageListFragment"
+        android:name="com.example.tennistracker.PageListFragment"
+        android:label="fragment_page_list"
+        tools:layout="@layout/fragment_page_list" >
+        <action
+            android:id="@+id/action_pageListFragment_to_prevMatchStatsFragment"
+            app:destination="@id/prevMatchStatsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prevMatchStatsFragment"
+        android:name="com.example.tennistracker.prevMatchStatsFragment"
+        android:label="fragment_prev_match_stats"
+        tools:layout="@layout/fragment_prev_match_stats" >
+        <action
+            android:id="@+id/action_prevMatchStatsFragment_to_pageListFragment"
+            app:destination="@id/pageListFragment" />
+    </fragment>
+</navigation>
