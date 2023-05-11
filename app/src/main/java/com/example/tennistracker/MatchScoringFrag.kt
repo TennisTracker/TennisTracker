@@ -74,7 +74,7 @@ class MatchScoringFrag : Fragment() {
                 tiebreak(1)
                 if (newMatchViewModel.P1tiebreakScore > 9 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
                     newMatchViewModel.setIndexP1 += 1
-                    Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
+                    finishSet(1, view)
                 }
             }
             else if (newMatchViewModel.P1index == 4) {
@@ -86,7 +86,9 @@ class MatchScoringFrag : Fragment() {
             else if (setScores[newMatchViewModel.P1gameIndex] == 6 && setScores[newMatchViewModel.P2gameIndex] == 6){
                 tiebreak(1)
                 if (newMatchViewModel.P1tiebreakScore > 6 && (newMatchViewModel.P1tiebreakScore - newMatchViewModel.P2tiebreakScore) > 1){
+
                     finishSet(1, view)
+
                 }
             }
             else{
@@ -103,7 +105,7 @@ class MatchScoringFrag : Fragment() {
                 tiebreak(2)
                 if (newMatchViewModel.P2tiebreakScore > 9 && (newMatchViewModel.P2tiebreakScore - newMatchViewModel.P1tiebreakScore) > 1){
                     newMatchViewModel.setIndexP2 += 1
-                    Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
+                    finishSet(2, view)
                 }
             }
             else if (newMatchViewModel.P2index == 4) {
@@ -235,13 +237,25 @@ class MatchScoringFrag : Fragment() {
     public fun finishSet(i:Int, view:View){
         pointsReset()
 
-        if (newMatchViewModel.setIndexP1 == 1 && newMatchViewModel.setIndexP2==1){
-            newMatchViewModel.Set1P1 = view.findViewById<TextView>(R.id.setP1).toString()
-            newMatchViewModel.Set1P2 = view.findViewById<TextView>(R.id.setP2).toString()
+        if (newMatchViewModel.setIndexP1 == 0 && newMatchViewModel.setIndexP2==0){
+            newMatchViewModel.Set1P1 = setScores[newMatchViewModel.P1gameIndex].toString()
+            newMatchViewModel.Set1P2 = setScores[newMatchViewModel.P2gameIndex].toString()
+            if (newMatchViewModel.P1tiebreakScore > newMatchViewModel.P2tiebreakScore){
+                newMatchViewModel.Set1P1 = "7"
+            }
+            else if (newMatchViewModel.P1tiebreakScore < newMatchViewModel.P2tiebreakScore){
+                newMatchViewModel.Set1P2 = "7"
+            }
         }
-        else if (newMatchViewModel.setIndexP1 + newMatchViewModel.setIndexP2 == 3){
-            newMatchViewModel.Set2P1 = view.findViewById<TextView>(R.id.setP1).toString()
-            newMatchViewModel.Set2P2 = view.findViewById<TextView>(R.id.setP2).toString()
+        else if (newMatchViewModel.setIndexP1 + newMatchViewModel.setIndexP2 == 1){
+            newMatchViewModel.Set2P1 = setScores[newMatchViewModel.P1gameIndex].toString()
+            newMatchViewModel.Set2P2 = setScores[newMatchViewModel.P2gameIndex].toString()
+            if (newMatchViewModel.P1tiebreakScore > newMatchViewModel.P2tiebreakScore){
+                newMatchViewModel.Set2P1 = "7"
+            }
+            else if (newMatchViewModel.P1tiebreakScore < newMatchViewModel.P2tiebreakScore){
+                newMatchViewModel.Set2P2 = "7"
+            }
         }
         else {
             newMatchViewModel.Set3P1 = newMatchViewModel.P1tiebreakScore.toString()
@@ -258,7 +272,6 @@ class MatchScoringFrag : Fragment() {
             }
             else{
                 //MATCH DONE FUNCTION
-
                 Navigation.findNavController(view).navigate(R.id.action_matchScoringFrag_to_matchSumFrag)
             }
         }
