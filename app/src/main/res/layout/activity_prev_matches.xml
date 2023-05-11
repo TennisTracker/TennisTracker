@@ -17,13 +17,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
+
+    <Button
         android:id="@+id/button1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/clipart1384810"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="1"
+        android:textSize="0sp"
+        app:icon="@drawable/baseline_query_stats_24"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game1Players" />
+        app:layout_constraintTop_toTopOf="@+id/game1Players" />
     <TextView
         android:id="@+id/date_1"
         android:layout_width="wrap_content"
@@ -36,19 +40,23 @@
         android:id="@+id/game2Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game1Players" />
-    <ImageView
+
+    <Button
         android:id="@+id/button2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/clipart1384810"
+        android:text="1"
+        android:textSize="0sp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:icon="@drawable/baseline_query_stats_24"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game2Players" />
+        app:layout_constraintTop_toTopOf="@+id/game2Players" />
     <TextView
         android:id="@+id/date_2"
         android:layout_width="wrap_content"
@@ -61,19 +69,23 @@
         android:id="@+id/game3Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game2Players" />
-    <ImageView
+
+    <Button
         android:id="@+id/button3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/clipart1384810"
+        android:text="1"
+        android:textSize="0sp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:icon="@drawable/baseline_query_stats_24"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game3Players" />
+        app:layout_constraintTop_toTopOf="@+id/game3Players" />
     <TextView
         android:id="@+id/date_3"
         android:layout_width="wrap_content"
@@ -86,19 +98,23 @@
         android:id="@+id/game4Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game3Players" />
-    <ImageView
+
+    <Button
         android:id="@+id/button4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/clipart1384810"
+        android:text="1"
+        android:textSize="0sp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:icon="@drawable/baseline_query_stats_24"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game4Players" />
+        app:layout_constraintTop_toTopOf="@+id/game4Players" />
     <TextView
         android:id="@+id/date_4"
         android:layout_width="wrap_content"
@@ -111,20 +127,23 @@
         android:id="@+id/game5Players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:text="Example Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game4Players" />
 
-    <ImageView
+    <Button
         android:id="@+id/button5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/clipart1384810"
+        android:text="1"
+        android:textSize="0sp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:icon="@drawable/baseline_query_stats_24"
+        app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game5Players" />
+        app:layout_constraintTop_toTopOf="@+id/game5Players" />
     <TextView
         android:id="@+id/date_5"
         android:layout_width="wrap_content"
