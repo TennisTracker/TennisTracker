@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.findFragment
 import androidx.navigation.Navigation
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -110,6 +111,7 @@ class PageListFragment : Fragment() {
         //Get the view of the player text
         val game1Players = view.findViewById<TextView>(R.id.game1Players)
         val date1 = view.findViewById<TextView>(R.id.date_1)
+        val button1 = view.findViewById<Button>(R.id.button1)
 
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child((index*5).toString()).get().addOnSuccessListener {
@@ -120,10 +122,12 @@ class PageListFragment : Fragment() {
                 val score = it.child("matchScore").getValue(String::class.java)
                 game1Players.text = p1name + " Vs "+ p2name
                 date1.text = date + "\t" + score
+                button1.visibility = View.VISIBLE
             }
             else{
                 game1Players.text = ""
                 date1.text = ""
+                button1.visibility = View.GONE
             }
         }
     }
@@ -131,6 +135,7 @@ class PageListFragment : Fragment() {
         //Get the view of the player text
         val game2Players = view.findViewById<TextView>(R.id.game2Players)
         val date2 = view.findViewById<TextView>(R.id.date_2)
+        val button2 = view.findViewById<Button>(R.id.button2)
 
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child(((index*5) + 1).toString()).get().addOnSuccessListener {
@@ -141,10 +146,12 @@ class PageListFragment : Fragment() {
                 val score = it.child("matchScore").getValue(String::class.java)
                 game2Players.text = p1name + " Vs "+ p2name
                 date2.text = date + "\t" + score
+                button2.visibility = View.VISIBLE
             }
             else{
                 game2Players.text = ""
                 date2.text = ""
+                button2.visibility = View.GONE
             }
         }
     }
@@ -152,6 +159,7 @@ class PageListFragment : Fragment() {
         //Get the view of the player text
         val game3Players = view.findViewById<TextView>(R.id.game3Players)
         val date3 = view.findViewById<TextView>(R.id.date_3)
+        val button3 = view.findViewById<Button>(R.id.button3)
 
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child(((index*5) + 2).toString()).get().addOnSuccessListener {
@@ -162,10 +170,12 @@ class PageListFragment : Fragment() {
                 val score = it.child("matchScore").getValue(String::class.java)
                 game3Players.text = p1name + " Vs "+ p2name
                 date3.text = date + "\t" + score
+                button3.visibility = View.VISIBLE
             }
             else{
                 game3Players.text = ""
                 date3.text = ""
+                button3.visibility = View.GONE
             }
         }
     }
@@ -173,6 +183,7 @@ class PageListFragment : Fragment() {
         //Get the view of the player text
         val game4Players = view.findViewById<TextView>(R.id.game4Players)
         val date4 = view.findViewById<TextView>(R.id.date_4)
+        val button4 = view.findViewById<Button>(R.id.button4)
 
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child(((index*5) + 3).toString()).get().addOnSuccessListener {
@@ -183,10 +194,12 @@ class PageListFragment : Fragment() {
                 val score = it.child("matchScore").getValue(String::class.java)
                 game4Players.text = p1name + " Vs "+ p2name
                 date4.text = date + "\t" + score
+                button4.visibility = View.VISIBLE
             }
             else{
                 game4Players.text = ""
                 date4.text = ""
+                button4.visibility = View.GONE
             }
         }
     }
@@ -194,6 +207,7 @@ class PageListFragment : Fragment() {
         //Get the view of the player text
         val game5Players = view.findViewById<TextView>(R.id.game5Players)
         val date5 = view.findViewById<TextView>(R.id.date_5)
+        val button5 = view.findViewById<Button>(R.id.button5)
 
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child(((index*5) + 4).toString()).get().addOnSuccessListener {
@@ -204,10 +218,12 @@ class PageListFragment : Fragment() {
                 val score = it.child("matchScore").getValue(String::class.java)
                 game5Players.text = p1name + " Vs "+ p2name
                 date5.text = date + "\t" + score
+                button5.visibility = View.VISIBLE
             }
             else{
                 game5Players.text = ""
                 date5.text = ""
+                button5.visibility = View.GONE
             }
         }
     }
