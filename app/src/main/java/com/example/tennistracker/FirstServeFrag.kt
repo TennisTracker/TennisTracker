@@ -27,16 +27,22 @@ class FirstServeFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        //initialize buttons for player 1 and player 2
         val btnPlayer1 = view.findViewById<Button>(R.id.btnPlayer1)
         val btnPlayer2 = view.findViewById<Button>(R.id.btnPlayer2)
+
+        //set the text of p1 and p2 to the names given on previous page
         btnPlayer1.setText(newMatchViewModel.p1Name)
         btnPlayer2.setText(newMatchViewModel.p2Name)
 
         btnPlayer1.setOnClickListener{
+            //set firstserver to p1 and pull up match scoring frag
             newMatchViewModel.FirstServer = 1
             Navigation.findNavController(view).navigate(R.id.action_firstServeFrag_to_matchScoringFrag)
         }
         btnPlayer2.setOnClickListener{
+            //set firstserver to p2 and pull up match scoring frag
             newMatchViewModel.FirstServer = 2
             Navigation.findNavController(view).navigate(R.id.action_firstServeFrag_to_matchScoringFrag)
         }

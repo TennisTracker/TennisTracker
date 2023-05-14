@@ -17,6 +17,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
+//initialize coordinateList which keeps track of the service locations and if the return was made or missed
 public var coordinateList = mutableListOf<Triple<Float, Float, Boolean>>()
 class ServeTracker: AppCompatActivity() {
 
@@ -32,6 +33,7 @@ class ServeTracker: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_servespot_tracker)
 
+        //initialize buttons to end tracker and undo last serve location
         val endTracker = findViewById<Button>(R.id.end_tracker)
         val undoButton = findViewById<Button>(R.id.undo_button)
 
@@ -43,12 +45,11 @@ class ServeTracker: AppCompatActivity() {
             mX = motionEvent.x
             mY = motionEvent.y
 
-            // X and Y values are
-            // displayed in the TextView
 
-
+            //if the x and y values are within the location of the court, place the dot
             if ((mY.toInt() > 589) && (mY.toInt() < 1432)){
                 placeDot(mX.toInt(), mY.toInt(), mRelativeLayout)
+                //display popup window asking user if return was made or missed
                 showPopupWindow()
                 return@setOnTouchListener true
             }
@@ -58,12 +59,15 @@ class ServeTracker: AppCompatActivity() {
         }
 
         endTracker.setOnClickListener {
+            //if button pressed, pull up serve tracker summary page
             val Intent = Intent(this, ServeTrackerSum::class.java)
             startActivity(Intent)
         }
 
         undoButton.setOnClickListener {
+            //if undo button pressed, remove the last triple in coordinateList
             if (coordinateList.isNotEmpty()) {
+                //make a toast to tell user that the undo button was sucessfully clicked
                 Toast.makeText(this, "Undo button clicked", Toast.LENGTH_SHORT).show()
                 coordinateList.removeLastOrNull()
             }
@@ -77,9 +81,11 @@ class ServeTracker: AppCompatActivity() {
 
 
     private fun placeDot(x: Int, y: Int, parentView: ViewGroup) {
+        //place dot function takes in integers x and y which denote the location on screen. It also take sin parentView
         // Create a new ImageView for the dot
         val dot = ImageView(this)
         dot.setImageResource(R.drawable.dot)
+        //set dot color and size
         dot.setColorFilter(Color.RED)
         val dotSize = 30
         val params = RelativeLayout.LayoutParams(dotSize, dotSize)
@@ -100,6 +106,7 @@ class ServeTracker: AppCompatActivity() {
     private var popupWindow: PopupWindow? = null
 
     private fun showPopupWindow() {
+        //popupwindow function
         if (popupWindow == null) {
             // Inflate the popup layout
             val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -112,13 +119,16 @@ class ServeTracker: AppCompatActivity() {
             popupWindow?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
             // Set a click listener for the buttons
+            //initialize buttons for return missed and return made
             val buttonOption1 = popupView.findViewById<Button>(R.id.button_option1)
             val buttonOption2 = popupView.findViewById<Button>(R.id.button_option2)
             buttonOption1.setOnClickListener {
+                //add location and return made to coordinateList
                 coordinateList.add(Triple(mX, mY, true))
                 popupWindow?.dismiss()
             }
             buttonOption2.setOnClickListener {
+                //add location and return missed to coordinateList
                 coordinateList.add(Triple(mX, mY, false))
                 popupWindow?.dismiss()
             }

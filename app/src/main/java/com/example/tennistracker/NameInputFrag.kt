@@ -26,15 +26,18 @@ class NameInputFrag : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //initalize textviews for p1 and p2 name, then intialize nextButton
         val p1NameInput = view.findViewById<EditText>(R.id.p1NameInput)
         val p2NameInput = view.findViewById<EditText>(R.id.p2NameInput)
         val nextButton = view.findViewById<Button>(R.id.nextButton)
 
         nextButton.setOnClickListener{
+            //set p1Name and p2Name to given name
             val P1Name = p1NameInput.text.toString()
             val P2Name = p2NameInput.text.toString()
             newMatchViewModel.p1Name = P1Name
             newMatchViewModel.p2Name = P2Name
+            //pull up the firstServeFrag when nextButton clicked
             Navigation.findNavController(view).navigate(R.id.action_nameInputFrag_to_firstServeFrag)
         }
 

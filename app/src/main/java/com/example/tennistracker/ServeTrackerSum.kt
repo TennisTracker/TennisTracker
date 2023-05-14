@@ -21,13 +21,14 @@ class ServeTrackerSum: AppCompatActivity() {
         val mRelativeLayout = findViewById<RelativeLayout>(R.id.relative_layout_2)
 
 
-
+        //loop through coordinateList and display the locations.
         for (triple in coordinateList) {
-            System.out.println(triple)
             if (triple.third == false){
+                //if return was missed, display as red
                 placeDot(triple.first, triple.second, mRelativeLayout, "RED")
             }
             else{
+                //if return made, display as green
                 placeDot(triple.first, triple.second, mRelativeLayout, "GREEN")
             }
 
