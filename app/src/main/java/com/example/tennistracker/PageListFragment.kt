@@ -40,9 +40,10 @@ class PageListFragment : Fragment() {
             }
         }
 
-
+        //Getting the ID's for the buttons and text views
         val nextPageButton = view.findViewById<Button>(R.id.next_page_button)
         val prevPageButton = view.findViewById<Button>(R.id.prev_page_button)
+
         val Button1 = view.findViewById<Button>(R.id.button1)
         val Button2 = view.findViewById<Button>(R.id.button2)
         val Button3 = view.findViewById<Button>(R.id.button3)
@@ -52,12 +53,14 @@ class PageListFragment : Fragment() {
         val game5Players = view.findViewById<TextView>(R.id.game5Players)
         val pageCounter = view.findViewById<TextView>(R.id.pageCounter)
 
+        //After onCreate update the UI of the screen automatically
         updateItem1(PrevMatchViewModel.pageIndex, view)
         updateItem2(PrevMatchViewModel.pageIndex, view)
         updateItem3(PrevMatchViewModel.pageIndex, view)
         updateItem4(PrevMatchViewModel.pageIndex, view)
         updateItem5(PrevMatchViewModel.pageIndex, view)
 
+        //Tab over to next page of prev matches
         nextPageButton.setOnClickListener {
             if(game5Players.text != "") {
                 PrevMatchViewModel.pageIndex += 1
@@ -69,6 +72,7 @@ class PageListFragment : Fragment() {
                 updateItem5(PrevMatchViewModel.pageIndex, view)
             }
         }
+        //Go back to prev page of prev matches
         prevPageButton.setOnClickListener {
             if(PrevMatchViewModel.pageIndex!=0) {
                 PrevMatchViewModel.pageIndex -= 1

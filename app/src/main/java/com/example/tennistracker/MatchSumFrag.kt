@@ -104,7 +104,8 @@ class MatchSumFrag : Fragment() {
             val currentDateAndTime = sdf.format(Date())
 
 
-            //Get the number of matches in the database
+            //Get the number of matches in the database and add one to it since
+            //a new match was played
             database = FirebaseDatabase.getInstance().getReference("Players")
             var numberMatches = 0
             database.child("numMatches").get().addOnSuccessListener {
@@ -146,12 +147,13 @@ class MatchSumFrag : Fragment() {
             P1ServesTotal, p2name, p2pointsWon, P2TotalFirstServeMissed, P2TotalSecondServeMissed, P2TotalReturnMissed,
             P2ServesTotal, currentDateAndTime, final_Score)
 
+            //Here we enter in the match data into database
             database.child(numberMatches.toString()).get().addOnSuccessListener {
                 database.child(numberMatches.toString()).setValue(match)
             }
 
 
-            //Start sending player info to database
+            //Start sending player1 info to database
             database = FirebaseDatabase.getInstance().getReference("Players")
             val Player1 = Player(p1name, p1pointsWon, pointsPlayed, P1TotalFirstServeMissed,
                 P1TotalSecondServeMissed, P1TotalReturnMissed, P1ServesTotal)
@@ -185,12 +187,13 @@ class MatchSumFrag : Fragment() {
                     database.child(p1name).updateChildren(player)
                 }
                 else{
+                    //Put a new player into the database
                     database.child(p1name).setValue(Player1)
                 }
 
             }
 
-
+            //Repeat the same steps for player2
             val Player2 = Player(p2name, p2pointsWon, pointsPlayed, P2TotalFirstServeMissed,
                 P2TotalSecondServeMissed, P2TotalReturnMissed, P2ServesTotal)
             database.child(p2name).get().addOnSuccessListener{
@@ -222,12 +225,13 @@ class MatchSumFrag : Fragment() {
                     database.child(p2name).updateChildren(player)
                 }
                 else{
+                    //Put a new player into database
                     database.child(p2name).setValue(Player2)
                 }
 
             }
 
-
+            //Match is over now go back to main activity
             val intent = Intent(getActivity(), MainActivity::class.java)
             getActivity()?.startActivity(intent)
         }

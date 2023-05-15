@@ -49,6 +49,8 @@ class prevMatchStatsFragment : Fragment() {
         val txtP1ServesTotal = view.findViewById<TextView>(R.id.txtP1ServesTotal)
         val txtP2ServesTotal = view.findViewById<TextView>(R.id.txtP2ServesTotal)
 
+        //Go into database and retrieve all of the data from that specific previous match
+        //then take that data and display it
         database = FirebaseDatabase.getInstance().getReference("Players")
         database.child((PrevMatchViewModel.prevMatchIndex).toString()).get().addOnSuccessListener {
             if(it.exists()){
@@ -98,6 +100,7 @@ class prevMatchStatsFragment : Fragment() {
 
         }
 
+        //Go back to the prev match list page
         val btnReturn = view.findViewById<Button>(R.id.btnReturn)
         btnReturn.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_prevMatchStatsFragment_to_pageListFragment)
